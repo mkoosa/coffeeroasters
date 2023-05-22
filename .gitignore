@@ -1,12 +1,14 @@
 .DS_Store
 node_modules
 /dist
-
+*.sketch
+*.fig
+*.md
 
 # local env files
 .env.local
 .env.*.local
-
+cl
 # Log files
 npm-debug.log*
 yarn-debug.log*
@@ -22,3 +24,4 @@ pnpm-debug.log*
 *.sln
 *.sw?
 node_modules
+.prettierignore
