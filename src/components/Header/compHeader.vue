@@ -37,6 +37,7 @@ export default {
 }
 
 .logo {
+    margin-left: 1rem;
     align-self: end;
     position: relative;
 }
