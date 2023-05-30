@@ -13,8 +13,11 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
+    "autoprefixer": "^10.4.14",
     "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "firebase": "^9.22.1",
+    "vue": "^3.2.13",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
