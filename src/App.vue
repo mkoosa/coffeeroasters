@@ -36,12 +36,23 @@ img {
 }
 
 .wrapper {
-  padding: 3rem 2rem;
+  padding: 2.5rem;
 }
 
 .d-flex {
   display: flex;
 
+}
+
+p {
+  font-family: 'barlow, serif';
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Fraunces', serif;
 }
 
 :root {
@@ -52,5 +63,4 @@ img {
   --light-cream: #fefcf7;
   --grey: #83888F;
   --white: #ffff;
-}
-</style>
+}</style>
