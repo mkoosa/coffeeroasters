@@ -3,6 +3,7 @@
     <comp-introduction></comp-introduction>
     <comp-collection></comp-collection>
     <comp-reason></comp-reason>
+    <comp-instruction></comp-instruction>
     </div>
     
 </template>
@@ -11,10 +12,11 @@
 import compIntroduction from './compIntroduction.vue';
 import compCollection from './compCollection.vue';
 import compReason from './compReason.vue';
+import compInstruction from './compInstruction.vue';
 
 export default {
 
-components: {compIntroduction, compCollection, compReason}
+components: {compIntroduction, compCollection, compReason, compInstruction}
 
 
 

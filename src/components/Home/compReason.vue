@@ -1,5 +1,6 @@
 <template>
-    <div class="reason">
+    <section class="reason">
+    <div class="reason__background"></div>
         <h2 class="reason__header" v-text="headerText"></h2>
         <p class="reason__paragraph" v-text="reasonTxt"></p>
         <ul class="reason__list">
@@ -9,7 +10,7 @@
                 <p class="item__paragraph" v-text="reason.description"></p>
             </li>
         </ul>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -36,9 +37,7 @@ export default {
 <style scoped>
 .reason {
     width: 100%;
-    height: 90rem;
-    background-color: var(--dark-grey-blue);
-    border-radius: 1rem;
+    /* height: 90rem; */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -49,11 +48,24 @@ export default {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    position: relative;
+}
+
+.reason__background{
+    position: absolute;
+    height: 90rem;
+    background-color: var(--dark-grey-blue);
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 1rem;
 }
 
 .reason__list {
     color: var(--white);
     margin-top: 4rem;
+    position: relative;
+    z-index: 100;
 }
 
 .reason__header {
@@ -63,6 +75,8 @@ export default {
     font-weight: 800;
     font-family: 'Fraunces', serif;
     letter-spacing: .1rem;
+    position: relative;
+    z-index: 100;
 }
 
 .reason__paragraph {
@@ -92,7 +106,7 @@ export default {
     -ms-flex-align: center;
     align-items: center;
     background-color: var(--dark-cyan);
-    height: 40rem;
+    height: 36rem;
     border-radius: 1rem;
     padding: 0 3.5rem;
 }

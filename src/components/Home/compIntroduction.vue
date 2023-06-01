@@ -65,14 +65,16 @@ export default {
 }
 
 .introduction__text {
+    width: 80%;
     padding: 3rem 0;
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 2.6rem;
     color: var(--light-cream);
     opacity: .8;
     letter-spacing: .2rem;
     font-family: 'barlow, serif';
     font-weight: 100;
+    text-shadow: .3rem .3rem -.3rem;
 }
 </style>

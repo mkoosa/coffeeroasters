@@ -21,6 +21,7 @@ export default {
     transition: opacity .3s;
     font-weight: 800;
     letter-spacing: .1rem;
+    cursor: pointer;
 }
 
 .main-btn:hover {

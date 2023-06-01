@@ -5,7 +5,8 @@ const homeModule = {
   state() {
     return {
       collection: '',
-      reasons:''
+      reasons: '',
+      instruction:''
     };
   },
 
@@ -16,6 +17,9 @@ const homeModule = {
     setReasons(state, payload) {
       state.reasons = payload;
     },
+    setInstruction(state, payload) {
+      state.instruction = payload;
+    },
   },
 
   getters: {
@@ -24,6 +28,9 @@ const homeModule = {
     },
     getReasons(state) {
       return state.reasons;
+    },
+    getInstruction(state) {
+      return state.instruction;
     },
   },
 
@@ -47,6 +54,18 @@ const homeModule = {
           const data = snapshot.val();
           console.log(data);
           commit("setReasons", data);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async getInstruction({ commit }) {
+      try {
+        const collectionRef = ref(database, "instruction");
+        onValue(collectionRef, (snapshot) => {
+          const data = snapshot.val();
+          console.log(data);
+          commit("setInstruction", data);
         });
       } catch (error) {
         console.log(error);
