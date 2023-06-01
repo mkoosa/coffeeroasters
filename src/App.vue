@@ -2,6 +2,7 @@
   <div class="wrapper">
     <comp-header></comp-header>
     <comp-main></comp-main>
+    <comp-footer></comp-footer>
   </div>
 </template>
 
@@ -35,6 +36,7 @@ img {
   max-width: 100%;
 }
 
+
 .wrapper {
   padding: 2.5rem;
 }
@@ -63,4 +65,5 @@ h4 {
   --light-cream: #fefcf7;
   --grey: #83888F;
   --white: #ffff;
-}</style>
+}
+</style>

@@ -9,17 +9,16 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import Store from './Store/index';
 
-
 // components
 import MainButton from './Utils/buttons/compButtonMain.vue';
-
-
+import compFooter from './components/Footer/compFooter.vue'
 
 library.add(fas, far, fab)
 dom.watch();
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.component('btn-main', MainButton);
+app.component('comp-footer', compFooter);
 app.use(Store);
 app.mount('#app');
 
