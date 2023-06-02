@@ -18,13 +18,15 @@ export default {
     background-color: var(--dark-cyan);
     font-family: 'Fraunces', serif;
     border-radius: .7rem;
-    transition: opacity .3s;
     font-weight: 800;
     letter-spacing: .1rem;
     cursor: pointer;
+    position: relative;
+    
 }
 
 .main-btn:hover {
+    
     opacity: .7;
     background-color: var(--dark-cyan-hover);
 }

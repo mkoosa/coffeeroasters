@@ -2,9 +2,9 @@
     <div class="logo__wrapper">
         <div class="logo">
             <img src="../assets/home/desktop/icon-coffee-bean.svg" alt="coffee bean" class="bean bean--first">
-            <img src="../assets/home/desktop/icon-coffee-bean.svg" alt="coffee bean" width="20px" class="bean bean--second">
+            <img src="../assets/home/desktop/icon-coffee-bean.svg" alt="coffee bean" class="bean bean--second">
         </div>
-        <h1 class="heading" :class="$attrs.class">coffeeroasters</h1>
+        <h1 class="logo__heading" :class="$attrs.class">coffeeroasters</h1>
     </div>
 </template>
 
@@ -27,10 +27,15 @@ export default {
     position: relative;
 }
 
+.bean {
+    min-width: 15px;
+}
+
+
 .bean--first {
     position: absolute;
-    bottom: 1.2rem;
-    right: .8rem;
+    bottom: 1.4rem;
+    right: 1rem;
     z-index: 1;
     transform: rotate(-10deg);
     width: 1.6rem;
@@ -42,7 +47,7 @@ export default {
     width: 1.6rem;
 }
 
-.heading {
+.logo__heading {
     margin-left: .5rem;
     font-size: 2.2rem;
     font-family: 'Fraunces', serif;
@@ -51,8 +56,29 @@ export default {
     opacity: .9;
 }
 
-.bigger{
+.bigger {
     font-size: 2.8rem;
     margin-left: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+    .logo__heading {
+        font-size: 2.4rem;
+    }
+
+    .logo__wrapper {
+        margin: 1.5rem 0;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .logo__heading {
+        font-size: 3.3rem;
+
+    }
+
+    .bean {
+        width: 20px;
+    }
 }
 </style>

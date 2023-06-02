@@ -1,6 +1,7 @@
 <template>
     <section class="instruction">
         <h2 class="instruction__header" v-text="textHeader"></h2>
+        <comp-steps class="active"></comp-steps>
         <ul class="instruction__list">
             <li class="instruction__item" v-for="instruction in instructions" :key="instruction.index">
                 <p class="item__index" v-text="instruction.index"></p>
@@ -13,10 +14,11 @@
 </template>
 
 <script>
-import compButton from '@/Utils/buttons/compButtonMain.vue'        
+import compButton from '@/Utils/buttons/compButtonMain.vue';
+import compSteps from '@/Utils/compSteps.vue';
 
 export default {
-components: {compButton},
+components: {compButton, compSteps},
     data() {
         return {
             textHeader: 'How it works',
@@ -64,6 +66,10 @@ text-align: center;
     opacity: .9;
 }
 
+.active{
+    display: none;
+}
+
 .item__paragraph{
     font-size: 1.7rem;
     line-height: 2.8rem;
@@ -75,5 +81,29 @@ text-align: center;
 
 .btn{
     margin: 4rem 0;
+}
+
+
+@media only screen and (min-width: 768px){
+    .active{
+    display: flex;
+}
+    .instruction{
+        margin-top: 10rem;
+        text-align: left;
+    }
+    .instruction__list{
+        margin-top: 3.5rem;
+
+        display: flex;
+        justify-content: space-around;
+    }
+    .instruction__item{
+        width: 30%;
+    }
+    .btn{
+        margin-top: 0rem;
+    }
+
 }
 </style>

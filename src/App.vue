@@ -38,6 +38,8 @@ img {
 
 
 .wrapper {
+  margin: 0 auto;
+  max-width: 145rem;
   padding: 2.5rem;
 }
 
@@ -46,7 +48,7 @@ img {
 
 }
 
-p {
+p, li {
   font-family: 'barlow, serif';
 }
 
@@ -65,5 +67,11 @@ h4 {
   --light-cream: #fefcf7;
   --grey: #83888F;
   --white: #ffff;
+}
+
+@media only screen and (min-width: 768px){
+  .wrapper{
+    padding: 3.5rem;
+  }
 }
 </style>

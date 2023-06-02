@@ -1,13 +1,18 @@
 <template>
     <section class="reason">
-    <div class="reason__background"></div>
+        <div class="reason__background"></div>
         <h2 class="reason__header" v-text="headerText"></h2>
         <p class="reason__paragraph" v-text="reasonTxt"></p>
         <ul class="reason__list">
             <li class="list__item" v-for="reason in reasons" :key="reason.name">
-                <p class="list__icon" v-html="reason.icon"></p>
-                <h3 class="item__header" v-text="reason.name"></h3>
-                <p class="item__paragraph" v-text="reason.description"></p>
+                <div class="icon-wrapper">
+                    <p class="list__icon" v-html="reason.icon"></p>
+                </div>
+                <div class="item__content">
+                    <h3 class="item__header" v-text="reason.name"></h3>
+                    <p class="item__paragraph" v-text="reason.description"></p>
+
+                </div>
             </li>
         </ul>
     </section>
@@ -36,8 +41,6 @@ export default {
 
 <style scoped>
 .reason {
-    width: 100%;
-    /* height: 90rem; */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -51,7 +54,7 @@ export default {
     position: relative;
 }
 
-.reason__background{
+.reason__background {
     position: absolute;
     height: 90rem;
     background-color: var(--dark-grey-blue);
@@ -90,25 +93,12 @@ export default {
 }
 
 .list__item {
+    margin: 3rem;
+    padding: 8em 5rem;
     text-align: center;
-    margin: 2.5rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
     background-color: var(--dark-cyan);
-    height: 36rem;
     border-radius: 1rem;
-    padding: 0 3.5rem;
+
 }
 
 .list__icon {
@@ -126,5 +116,128 @@ export default {
     font-size: 1.5rem;
     font-weight: 100;
     line-height: 2.6rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .reason__paragraph {
+        width: 75%;
+        padding-bottom: 4rem;
+    }
+
+    .reason__background {
+        height: 60rem;
+    }
+
+    .reason__list {
+        margin-top: 2rem;
+        width: 85%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .list__item {
+        margin: 1.4rem 3rem;
+        padding: 4rem 3.5rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: auto;
+        width: 100%;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+
+    .icon-wrapper {
+        position: relative;
+
+    }
+
+    .list__icon {
+        margin-left: 3rem;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        font-size: 6rem;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .item__header {
+        margin-bottom: 1.5rem;
+    }
+
+    .item__content {
+        width: 70%;
+        text-align: left;
+        padding-right: 3rem;
+    }
+
+    .item__paragraph {
+        opacity: .8;
+        letter-spacing: .1rem;
+        font-weight: 100;
+        text-shadow: -.1rem -.1rem -.2rem var(--white);
+    }
+
+    @media only screen and (min-width: 1200px) {
+        .reason__header {
+            font-size: 4.7rem;
+        }
+
+        .reason__list {
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .reason__paragraph {
+            width: 45%;
+        }
+
+        .list__item {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            height: 42rem;
+            width: 36rem;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .list__icon {
+            all: initial;
+            font-size: 6rem;
+            color: var(--pale-orange);
+            background-color: transparent;
+        }
+
+        .item__content {
+            margin-top: 2rem;
+            text-align: center;
+            padding-right: 0;
+        }
+    }
+
 }
 </style>

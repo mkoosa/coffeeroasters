@@ -26,15 +26,15 @@ export default {
 
 <style scoped>
 .introduction {
-    background-image: url(../../assets/home/mobile/image-hero-coffeepress.jpg);
+    background-image: url('https://res.cloudinary.com/dwp8gkrp5/image/upload/v1685632116/image-hero-coffeepress_gbo31y.jpg');
     background-repeat: no-repeat;
     height: 50rem;
-    width: 100%;
     border-radius: 1rem;
     background-size: cover;
     background-position: center;
     position: relative;
 }
+
 .introduction__content {
     top: 0;
     left: 0;
@@ -76,5 +76,51 @@ export default {
     font-family: 'barlow, serif';
     font-weight: 100;
     text-shadow: .3rem .3rem -.3rem;
+}
+
+@media only screen and (min-width: 600px) {
+
+    .introduction {
+        position: relative;
+        height: 50rem;
+        overflow: hidden;
+    }
+    
+    .introduction::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        /* left: -5rem; */
+        width: 100%;
+        background-image: url('https://res.cloudinary.com/dwp8gkrp5/image/upload/v1685632155/image-hero-coffeepress_niuovq.jpg');
+        background-repeat: no-repeat;
+        filter: brightness(.8);
+        background-size: cover;
+        border-radius: 1rem;
+        box-shadow: .1rem .1rem .5rem var(--grey);
+        /* height: 50rem; */
+        height: 100%;
+        
+    }
+
+    .introduction__content {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: start;
+        margin-left: 2.5rem;
+    }
+
+    .introduction__header,
+    .introduction__text {
+        width: 70%;
+        max-width: 40rem;
+        margin: 1rem 0;
+        text-align: left;
+    }
+
+    .introduction__header {
+        font-size: 4.5rem;
+        line-height: 5rem;
+    }
 }
 </style>
