@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+  <comp-sidemenu></comp-sidemenu>
     <comp-header></comp-header>
     <comp-main></comp-main>
     <comp-footer></comp-footer>
@@ -9,10 +10,11 @@
 <script>
 import compMain from './components/Home/compMain';
 import compHeader from './components/Header/compHeader.vue';
+import compSidemenu from './components/Menu/compSidemenu.vue';
 
 
 export default {
-  components: { compMain, compHeader }
+  components: { compMain, compHeader, compSidemenu }
 
 }
 </script>
@@ -41,6 +43,7 @@ img {
   margin: 0 auto;
   max-width: 145rem;
   padding: 2.5rem;
+  position: relative;
 }
 
 .d-flex {

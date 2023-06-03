@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <comp-logo></comp-logo>
-        <div class="nav">
+        <div class="nav" @click="$store.dispatch('side/hideSideMenu', true)">
             <i class="fa-solid fa-bars hamburger" tabindex="0"></i>
         </div>
         <comp-nav></comp-nav>
@@ -19,9 +19,13 @@ export default {
 </script>
 
 <style>
+
+.nav{
+    cursor: pointer;
+
+}
 .hamburger {
     font-size: 2.5rem;
-    cursor: pointer;
 }
 
 .header {
@@ -29,7 +33,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background-color: aqua; */
 }
 
 

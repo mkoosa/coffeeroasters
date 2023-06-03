@@ -1,13 +1,14 @@
 <template>
     <ul class="nav-list" :class="$attrs.class">
-        <li tabindex="0" :class="['nav-list__item', { 'nav-list__item--footer': footer }]" v-for="detail in details" :key="detail">{{
-            detail }}</li>
+        <li tabindex="0" :class="['nav-list__item', { 'nav-list__item--footer': footer, 'nav-list__item--side': side }]"
+            v-for="detail in details" :key="detail">{{
+                detail }}</li>
     </ul>
 </template>
 
 <script>
 export default {
-    props: ['footer'],
+    props: ['footer', 'side'],
     data() {
         return {
             details: ['home', 'about us', 'create your plane'],
@@ -39,6 +40,28 @@ export default {
     display: flex;
 }
 
+.nav-list--side {
+    padding-left: 2rem;
+    padding-top: 5rem;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: flex-start;
+    text-transform: uppercase;
+    color: var(--grey) !important;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    height: 17rem;
+    white-space: nowrap;
+}
+
 .nav-list__item--footer {
     color: var(--grey) !important;
     margin: 1.3rem 0;
@@ -46,6 +69,21 @@ export default {
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
+}
+
+.nav-list__item--side {
+    color: var(--grey) !important;
+    margin: 1.3rem 0;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: .8;
+    transition: opacity .1s;
+}
+
+.nav-list__item--side:hover {
+    opacity: 1;
 }
 
 @media only screen and (min-width: 600px) {
@@ -97,9 +135,7 @@ export default {
     .nav-list {
         width: 40rem;
     }
-
     .nav-list__item {
         font-size: 1.4rem;
     }
-}
-</style>
+}</style>
