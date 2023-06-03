@@ -1,20 +1,20 @@
 <template>
   <div class="wrapper">
+  <router-view/>
   <comp-sidemenu></comp-sidemenu>
     <comp-header></comp-header>
-    <comp-main></comp-main>
     <comp-footer></comp-footer>
   </div>
 </template>
 
 <script>
-import compMain from './components/Home/compMain';
+// import compMain from './components/Home/compMain';
 import compHeader from './components/Header/compHeader.vue';
 import compSidemenu from './components/Menu/compSidemenu.vue';
 
 
 export default {
-  components: { compMain, compHeader, compSidemenu }
+  components: {compHeader, compSidemenu }
 
 }
 </script>
@@ -68,8 +68,13 @@ h4 {
   --dark-grey-blue: #333D4B;
   --pale-orange: #fdd6ba;
   --light-cream: #fefcf7;
-  --grey: #83888F;
+  --grey: #616163;
   --white: #ffff;
+}
+
+.main{
+  position: relative;
+  z-index: 3;
 }
 
 @media only screen and (min-width: 768px){

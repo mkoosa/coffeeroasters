@@ -3,7 +3,7 @@
     <div @click="$store.dispatch('side/hideSideMenu', false)">
         <i class="fas fa-solid fa-xmark" tabindex="0"></i>
     </div>
-        <comp-nav :side="side" class="nav-list--side"></comp-nav>
+        <comp-nav class="nav-list--side"></comp-nav>
     </div>
 </template>
 

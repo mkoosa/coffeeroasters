@@ -5,7 +5,6 @@
     <comp-reason></comp-reason>
     <comp-instruction></comp-instruction>
     </div>
-    
 </template>
 
 <script>

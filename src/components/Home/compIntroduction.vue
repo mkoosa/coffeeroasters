@@ -26,6 +26,7 @@ export default {
 
 <style scoped>
 .introduction {
+    margin-top: 6rem;
     background-image: url('https://res.cloudinary.com/dwp8gkrp5/image/upload/v1685632116/image-hero-coffeepress_gbo31y.jpg');
     background-repeat: no-repeat;
     height: 50rem;

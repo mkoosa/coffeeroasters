@@ -1,12 +1,21 @@
 <template>
     <ul class="nav-list" :class="$attrs.class">
         <li tabindex="0" :class="['nav-list__item', { 'nav-list__item--footer': footer, 'nav-list__item--side': side }]"
-            v-for="detail in details" :key="detail">{{
-                detail }}</li>
+            v-for="detail in details" :key="detail">
+            <router-link :to="{ name: detail }">
+                {{ detail }}
+
+            </router-link>
+
+
+
+        </li>
     </ul>
 </template>
 
 <script>
+
+/*eslint-disable*/
 export default {
     props: ['footer', 'side'],
     data() {
@@ -40,6 +49,10 @@ export default {
     display: flex;
 }
 
+.nav-list__item--footer a {
+    color: var(--grey);
+
+}
 .nav-list--side {
     padding-left: 2rem;
     padding-top: 5rem;
@@ -53,17 +66,32 @@ export default {
     display: flex;
     align-items: flex-start;
     text-transform: uppercase;
-    color: var(--grey) !important;
     font-size: 1.3rem;
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
     height: 17rem;
     white-space: nowrap;
+    color: var(--grey) !important;
+    
+}
+.nav-list--header li a{
+    color: var(--grey) !important;
+    opacity: .9;
+
+}
+.nav-list--header li a:hover{
+    color: var(--grey) !important;
+    opacity: 1;
+
+}
+
+.nav-list--side a {
+
+    color: var(--grey) !important;
 }
 
 .nav-list__item--footer {
-    color: var(--grey) !important;
     margin: 1.3rem 0;
     font-size: 1.3rem;
     text-transform: uppercase;
@@ -71,8 +99,8 @@ export default {
     cursor: pointer;
 }
 
+
 .nav-list__item--side {
-    color: var(--grey) !important;
     margin: 1.3rem 0;
     font-size: 1.3rem;
     text-transform: uppercase;
@@ -80,6 +108,11 @@ export default {
     cursor: pointer;
     opacity: .8;
     transition: opacity .1s;
+}
+
+.nav-list__item--side a {
+    color: var(--grey);
+
 }
 
 .nav-list__item--side:hover {
@@ -135,7 +168,9 @@ export default {
     .nav-list {
         width: 40rem;
     }
+
     .nav-list__item {
         font-size: 1.4rem;
     }
-}</style>
+}
+</style>
