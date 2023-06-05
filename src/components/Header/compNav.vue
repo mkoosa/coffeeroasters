@@ -1,20 +1,15 @@
 <template>
-    <ul class="nav-list" :class="$attrs.class">
+    <ul class="nav-list" :class="['$attrs.class', { 'active': isSideMenuActive }]">
         <li tabindex="0" :class="['nav-list__item', { 'nav-list__item--footer': footer, 'nav-list__item--side': side }]"
             v-for="detail in details" :key="detail">
-            <router-link :to="{ name: detail }">
+            <router-link :to="{ name: detail }" @click="hideSideMenu">
                 {{ detail }}
-
             </router-link>
-
-
-
         </li>
     </ul>
 </template>
 
 <script>
-
 /*eslint-disable*/
 export default {
     props: ['footer', 'side'],
@@ -22,7 +17,18 @@ export default {
         return {
             details: ['home', 'about us', 'create your plane'],
         }
-    }
+    },
+    methods: {
+        hideSideMenu() {
+            this.$store.dispatch('side/hideSideMenu', false)
+        }
+    },
+
+    computed: {
+        isSideMenuActive() {
+            return this.$store.getters['side/getSideMenu']
+        }
+    },
 }
 
 </script>
@@ -51,45 +57,53 @@ export default {
 
 .nav-list__item--footer a {
     color: var(--grey);
-
 }
+
 .nav-list--side {
-    padding-left: 2rem;
-    padding-top: 5rem;
+    margin-top: 3rem;
+    height: 23rem;
     width: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    justify-content: space-evenly;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    align-items: flex-start;
-    text-transform: uppercase;
     font-size: 1.3rem;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: 600;
     cursor: pointer;
-    height: 17rem;
     white-space: nowrap;
-    color: var(--grey) !important;
+    color: var(--grey);
+}
+
+.nav-list--side a {
+    font-family: 'Fraunces', serif;
+    color: var(--dark-grey-blue);
+    font-size: 2.3rem;
+    font-weight: 900;
+    opacity: 0;
+}
+
+.active.nav-list--side a {
+    display: block;
+    opacity: 1;
+    transition: all 1s .3s;
     
 }
-.nav-list--header li a{
-    color: var(--grey) !important;
+.nav-list--header li a {
+    color: var(--grey);
     opacity: .9;
-
 }
-.nav-list--header li a:hover{
-    color: var(--grey) !important;
+
+.nav-list--header li a:hover {
+    color: var(--grey);
     opacity: 1;
 
 }
 
-.nav-list--side a {
-
-    color: var(--grey) !important;
-}
 
 .nav-list__item--footer {
     margin: 1.3rem 0;

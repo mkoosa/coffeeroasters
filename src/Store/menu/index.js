@@ -23,6 +23,7 @@ const sideModule = {
       commit("setSideMenu", payload);
     },
   },
+  
 };
 
 export default sideModule;

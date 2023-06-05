@@ -8,14 +8,14 @@
 </template>
 
 <script>
-// import compMain from './components/Home/compMain';
 import compHeader from './components/Header/compHeader.vue';
 import compSidemenu from './components/Menu/compSidemenu.vue';
 
-
 export default {
-  components: {compHeader, compSidemenu }
+  components: { compHeader, compSidemenu },
+  
 
+  
 }
 </script>
 
@@ -31,13 +31,11 @@ export default {
 
 html {
   font-size: 62.5%;
-
 }
 
 img {
   max-width: 100%;
 }
-
 
 .wrapper {
   margin: 0 auto;
@@ -48,7 +46,6 @@ img {
 
 .d-flex {
   display: flex;
-
 }
 
 p, li {
