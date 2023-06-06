@@ -1,10 +1,10 @@
 <template>
-  <div class="wrapper">
-  <router-view/>
-  <comp-sidemenu></comp-sidemenu>
-    <comp-header></comp-header>
-    <comp-footer></comp-footer>
-  </div>
+  <main class="wrapper">
+    <router-view />
+    <comp-sidemenu/>
+    <comp-header/>
+    <comp-footer/>
+  </main>
 </template>
 
 <script>
@@ -13,9 +13,7 @@ import compSidemenu from './components/Menu/compSidemenu.vue';
 
 export default {
   components: { compHeader, compSidemenu },
-  
 
-  
 }
 </script>
 
@@ -48,7 +46,8 @@ img {
   display: flex;
 }
 
-p, li {
+p,
+li {
   font-family: 'barlow, serif';
 }
 
@@ -69,13 +68,13 @@ h4 {
   --white: #ffff;
 }
 
-.main{
+.main {
   position: relative;
   z-index: 3;
 }
 
-@media only screen and (min-width: 768px){
-  .wrapper{
+@media only screen and (min-width: 768px) {
+  .wrapper {
     padding: 3.5rem;
   }
 }

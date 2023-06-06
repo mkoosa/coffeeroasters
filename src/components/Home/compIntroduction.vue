@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 import btnMain from '@/Utils/buttons/compButtonMain.vue';
 export default {
     components: { btnMain },

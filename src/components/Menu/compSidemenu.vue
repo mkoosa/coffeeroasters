@@ -27,17 +27,15 @@ export default {
     top: 8rem;
     width: 100%;
     left: 0;
-    background-color: var(--dark-grey-blue);
-    background: -webkit-linear-gradient(#fff, #fff, transparent);
-    z-index: 200;
-    transition: height .3s;
-    
+    /* background-color: var(--dark-grey-blue); */
+    background: -webkit-linear-gradient(#fff, #fff, transparent) !important;
+    z-index: 600;
+    transition: height .3s
 }
 
 .side-menu {
     height: 0rem;
     transition: all .3s;
-    /* overflow: hidden; */
 }
 
 
@@ -49,6 +47,4 @@ export default {
     color: var(--grey);
     cursor: pointer;
 }
-
-
 </style>

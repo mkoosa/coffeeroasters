@@ -13,6 +13,7 @@
     </section>
 </template>
 <script>
+
 export default {
     computed: {
         collection() {

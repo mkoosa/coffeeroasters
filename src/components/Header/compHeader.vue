@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <comp-logo></comp-logo>
+        <comp-logo/>
         <div class="nav" @click="$store.dispatch('side/hideSideMenu', true)" v-if="!isHamburgerHidden">
             <i :class="['fa-solid', 'fa-bars', 'hamburger', 'active']" tabindex="0"></i>
         </div>

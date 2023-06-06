@@ -55,9 +55,18 @@ export default {
     display: flex;
 }
 
+.nav-list__item--footer {
+    margin: 1.3rem 0;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+}
+
 .nav-list__item--footer a {
     color: var(--grey);
 }
+
 
 .nav-list--side {
     margin-top: 3rem;
@@ -91,28 +100,7 @@ export default {
     display: block;
     opacity: 1;
     transition: all 1s .3s;
-    
 }
-.nav-list--header li a {
-    color: var(--grey);
-    opacity: .9;
-}
-
-.nav-list--header li a:hover {
-    color: var(--grey);
-    opacity: 1;
-
-}
-
-
-.nav-list__item--footer {
-    margin: 1.3rem 0;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    cursor: pointer;
-}
-
 
 .nav-list__item--side {
     margin: 1.3rem 0;
@@ -132,6 +120,17 @@ export default {
 .nav-list__item--side:hover {
     opacity: 1;
 }
+
+.nav-list--header li a {
+    color: var(--grey);
+    opacity: .9;
+}
+
+.nav-list--header li a:hover {
+    color: var(--grey);
+    opacity: 1;
+}
+
 
 @media only screen and (min-width: 600px) {
     .hamburger {

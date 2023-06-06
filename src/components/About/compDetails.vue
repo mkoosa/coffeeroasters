@@ -15,9 +15,7 @@
 
 <script>
 
-
 export default {
-
 
     computed: {
         details() {
@@ -25,7 +23,7 @@ export default {
         }
     },
     mounted() {
-        return this.$store.dispatch('about/getCommitmentContent')
+        this.$store.dispatch('about/getCommitmentContent')
     },
 
     methods: {
@@ -35,10 +33,7 @@ export default {
             value = 'details__element--' + value[1]
             return value
         }
-
     }
-
-
 }
 
 </script>
@@ -74,6 +69,7 @@ export default {
     z-index: 20;
     margin-bottom: 4.5rem;
 }
+
 .details__content {
     position: relative;
     z-index: 30;
