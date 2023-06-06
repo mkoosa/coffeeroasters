@@ -1,5 +1,6 @@
 import { database, ref, onValue } from "../../firebase.js";
 
+
 const homeModule = {
   namespaced: true,
   state() {
@@ -52,7 +53,6 @@ const homeModule = {
         const collectionRef = ref(database, "reason");
         onValue(collectionRef, (snapshot) => {
           const data = snapshot.val();
-          console.log(data);
           commit("setReasons", data);
         });
       } catch (error) {
@@ -64,7 +64,6 @@ const homeModule = {
         const collectionRef = ref(database, "instruction");
         onValue(collectionRef, (snapshot) => {
           const data = snapshot.val();
-          console.log(data);
           commit("setInstruction", data);
         });
       } catch (error) {
