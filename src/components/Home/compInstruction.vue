@@ -20,7 +20,7 @@ import compButton from '@/Utils/buttons/compButtonMain.vue';
 import compSteps from '@/Utils/compSteps.vue';
 
 export default {
-components: {compButton, compSteps},
+    components: { compButton, compSteps },
     data() {
         return {
             textHeader: 'How it works',
@@ -42,25 +42,25 @@ components: {compButton, compSteps},
 </script>
 
 <style scoped>
-
-.instruction{
-text-align: center;    
+.instruction {
+    text-align: center;
 }
-.instruction__header{
+
+.instruction__header {
     margin: 5rem 0;
     font-size: 2.6rem;
     font-weight: 800;
     color: var(--grey);
 }
 
-.item__index{
+.item__index {
     font-size: 7.5rem;
     color: var(--pale-orange);
     font-family: 'Fraunces', serif;
     font-weight: 900;
 }
 
-.item__header{
+.item__header {
     margin: 2rem 0;
     font-size: 2.7rem;
     font-weight: 800;
@@ -68,42 +68,49 @@ text-align: center;
     opacity: .9;
 }
 
-.active{
+.active {
     display: none;
 }
 
-.item__paragraph{
-    font-size: 1.7rem;
+.item__paragraph {
+    font-size: 1.6rem;
     line-height: 2.8rem;
     font-weight: 100;
-    opacity: .7;
     text-shadow: .3rem .3rem -.3rem;
     margin-bottom: 4rem;
 }
 
-.btn{
+.btn {
     margin: 4rem 0;
 }
 
 
-@media only screen and (min-width: 768px){
-    .active{
-    display: flex;
-}
-    .instruction{
+@media only screen and (min-width: 768px) {
+    .active {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    .instruction {
         margin-top: 10rem;
         text-align: left;
     }
-    .instruction__list{
-        margin-top: 3.5rem;
 
+    .instruction__list {
+        margin-top: 3.5rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-pack: distribute;
         justify-content: space-around;
     }
-    .instruction__item{
+
+    .instruction__item {
         width: 30%;
     }
-    .btn{
+
+    .btn {
         margin-top: 0rem;
     }
 

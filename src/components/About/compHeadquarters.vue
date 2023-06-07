@@ -44,9 +44,10 @@ export default {
     color: var(--dark-grey-blue);
 }
 
-.headquarters__img{
+.headquarters__img {
     margin: 2rem 0;
 }
+
 .headquarters__header {
     margin: 6rem 0;
     font-size: 2.4rem;
@@ -62,7 +63,7 @@ export default {
     opacity: .9;
 }
 
-.country__details{
+.country__details {
     margin-bottom: 6rem;
     text-transform: capitalize;
     font-size: 1.6rem;
@@ -71,4 +72,47 @@ export default {
     line-height: 2.6rem;
 }
 
+@media only screen and (min-width:768px) {
+    .headquarters {
+        text-align: left;
+    }
+
+    .headquarters__list {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    .headquarters__element:nth-child(1) {
+        margin-right: 3rem;
+    }
+
+    .headquarters__element:nth-child(2) {
+        margin-right: 10rem;
+    }
+
+}
+
+@media only screen and (min-width:1200px) {
+    .headquarters__header {
+        opacity: .8;
+        font-size: 3rem;
+    }
+
+    .headquarters__element:nth-child(1) {
+        margin-right: 0;
+    }
+
+    .headquarters__element:nth-child(2) {
+        margin-right: 0;
+    }
+
+    .headquarters__list {
+        width: 60%;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+
+}
 </style>

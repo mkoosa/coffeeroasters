@@ -60,14 +60,13 @@ export default {
 .introduction__header {
     text-align: center;
     font-size: 4rem;
-    line-height: 4.8rem;
-    font-weight: 800;
+    line-height: 4.5rem;
+    font-weight: 900;
     font-family: 'Fraunces', serif;
 
 }
 
 .introduction__text {
-    width: 80%;
     padding: 3rem 0;
     text-align: center;
     font-size: 1.4rem;

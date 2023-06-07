@@ -1,5 +1,5 @@
 <template>
-  <main class="wrapper">
+  <main class="main">
     <router-view />
     <comp-sidemenu />
     <comp-header />
@@ -35,7 +35,7 @@ img {
   max-width: 100%;
 }
 
-.wrapper {
+.main {
   margin: 0 auto;
   max-width: 145rem;
   padding: 2.5rem;

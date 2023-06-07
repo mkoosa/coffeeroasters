@@ -64,7 +64,7 @@ export default {
 }
 
 .nav-list__item--footer a {
-    color: var(--grey);
+    color: #f3f3f3;
 }
 
 
@@ -174,6 +174,12 @@ export default {
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
         flex-direction: row;
+    }
+
+
+    .nav-list__item{
+        margin: 0rem;
+       
     }
 }
 

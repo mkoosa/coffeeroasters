@@ -1,5 +1,5 @@
 <template>
-    <div class="about-us__details" v-for="detail in details" :key="detail.name"> 
+    <div class="about-us__detail" v-for="detail in details" :key="detail.name"> 
         <compDetail :detail="detail">
     
         

@@ -37,9 +37,18 @@ export default {
 .footer {
     color: var(--white);
     text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     background-color: var(--dark-grey-blue);
     aspect-ratio: 3 / 3.3;
@@ -75,21 +84,35 @@ export default {
 
     .footer__nav-list {
         margin: 0 0 2rem 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-pack: distribute;
         justify-content: space-around;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
         width: 35rem;
     }
 
-    @media only screen and (min-width: 1200px) {
-        .footer {
-            -webkit-box-orient: horizontal;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-            flex-direction: row;
-            -ms-flex-pack: distribute;
-            justify-content: space-around;
-        }
+    .footer__menu-list {
+        margin-top: 4rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .footer {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+
+    }
+
+    .footer__menu-list {
+        margin-top: 0rem;
     }
 }
 </style>
