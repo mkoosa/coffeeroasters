@@ -1,9 +1,9 @@
 <template>
   <main class="wrapper">
     <router-view />
-    <comp-sidemenu/>
-    <comp-header/>
-    <comp-footer/>
+    <comp-sidemenu />
+    <comp-header />
+    <comp-footer />
   </main>
 </template>
 
@@ -46,9 +46,12 @@ img {
   display: flex;
 }
 
-p,
+p {
+  font-family: 'Barlow', sans-serif;
+}
+
 li {
-  font-family: 'barlow, serif';
+  font-family: 'Barlow', sans-serif;
 }
 
 h1,

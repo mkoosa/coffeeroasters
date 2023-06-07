@@ -5,70 +5,50 @@ const asideModule = {
   namespaced: true,
   state() {
     return {
-      aboutUsContent: "",
-      commitmentContent: "",
-      headquarters:""
+      headquarters: "",
+      details:""
     };
   },
   mutations: {
-    setAboutUsContent(state, payload) {
-      state.aboutUsContent = payload;
-    },
-
-    setCommitmentContent(state, payload) {
-      state.commitmentContent = payload;
-    },
-
     setHeadquarters(state, payload) {
       state.headquarters = payload;
+    },
+
+    setDetails(state, payload) {
+      state.details = payload;
     },
   },
 
   getters: {
-    getAboutUsContent(state) {
-      return state.aboutUsContent;
-    },
-
-    getCommitmentContent(state) {
-      return state.commitmentContent;
-    },
-
     getHeadquarters(state) {
       return state.headquarters;
+    },
+
+    getDetails(state) {
+      return state.details;
     },
   },
 
   actions: {
-    async getAboutUsContent({ commit }) {
-      try {
-        const collectionRef = ref(database, "intrSetails");
-        onValue(collectionRef, (snapshot) => {
-          const data = snapshot.val();
-          commit("setAboutUsContent", data);
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    },
 
-    async getCommitmentContent({ commit }) {
-      try {
-        const collectionRef = ref(database, "details");
-        onValue(collectionRef, (snapshot) => {
-          const data = snapshot.val();
-          commit("setCommitmentContent", data);
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    
     async getHeadquarters({ commit }) {
       try {
         const collectionRef = ref(database, "headquarters");
         onValue(collectionRef, (snapshot) => {
           const data = snapshot.val();
           commit("setHeadquarters", data);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async getDetails({ commit }) {
+      try {
+        const collectionRef = ref(database, "details");
+        onValue(collectionRef, (snapshot) => {
+          const data = snapshot.val();
+          commit("setDetails", data);
         });
       } catch (error) {
         console.log(error);

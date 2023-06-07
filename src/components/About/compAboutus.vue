@@ -1,20 +1,16 @@
 <template>
     <section class="about-us">
-        <comp-introductory/>
         <comp-details/>
-        <comp-headquarters/>
     </section>
+        <comp-headquarters/>
 </template>
 
 <script>
-import compIntroductory from './compIntroductory.vue';
-import compDetails from './compDetails.vue';
 import compHeadquarters from './compHeadquarters.vue';
+import compDetails from './compDetails.vue';
 
 export default {
-    components: { compIntroductory, compDetails, compHeadquarters },
-
-
+    components: {  compHeadquarters, compDetails },
 
  }   
 

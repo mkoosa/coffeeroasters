@@ -1,5 +1,5 @@
 <template>
-    <section class="about-us__headquarters">
+    <section class="headquarters">
         <h2 class="headquarters__header">{{ header }}</h2>
         <ul class="headquarters__list">
             <li class="headquarters__element" v-for="headquarter in headquarters" :key="headquarter.icon">
@@ -38,11 +38,10 @@ export default {
 </script>
 
 <style scoped>
-.about-us__headquarters {
+.headquarters {
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 17rem;
     color: var(--dark-grey-blue);
-
 }
 
 .headquarters__img{
@@ -64,10 +63,10 @@ export default {
 }
 
 .country__details{
-    margin-bottom: 3rem;
+    margin-bottom: 6rem;
     text-transform: capitalize;
-    font-size: 1.8rem;
-    opacity: .7;
+    font-size: 1.6rem;
+    opacity: .9;
     text-shadow: .1rem .1rem -.3rem;
     line-height: 2.6rem;
 }
