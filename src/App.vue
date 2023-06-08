@@ -1,10 +1,10 @@
 <template>
-  <main class="main">
+  <div class="wrapper">
     <router-view />
     <comp-sidemenu />
     <comp-header />
     <comp-footer />
-  </main>
+  </div>
 </template>
 
 <script>
@@ -35,11 +35,11 @@ img {
   max-width: 100%;
 }
 
-.main {
+.wrapper {
   margin: 0 auto;
   max-width: 145rem;
-  padding: 2.5rem;
   position: relative;
+  padding: 2rem;
 }
 
 .d-flex {

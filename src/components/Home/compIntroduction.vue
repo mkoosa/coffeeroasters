@@ -3,8 +3,7 @@
         <div class="introduction__content d-flex">
             <h2 class="introduction__header">Great coffee made simple.</h2>
             <p class="introduction__text">Start your mornings with the world’s best coffees. Try our expertly curated
-                artisan
-                coffees from our best roasters delivered directly to your door, at your schedule.
+                artisan coffees from our best roasters delivered directly to your door, at your schedule.
             </p>
             <btn-main :text="text">
             </btn-main>
@@ -19,7 +18,11 @@ export default {
     components: { btnMain },
     data() {
         return {
-            text: 'Create your plane'
+            text: 'Create your plane',
+            headerTxt: 'Great coffee made simple.',
+            intTxt: `Start your mornings with the world’s best coffees. Try our expertly curated
+            artisan coffees from our best roasters delivered directly to your door, at your schedule.
+            `
         }
     },
 }

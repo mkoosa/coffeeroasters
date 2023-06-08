@@ -1,8 +1,6 @@
 <template>
     <div class="about-us__detail" v-for="detail in details" :key="detail.name"> 
         <compDetail :detail="detail">
-    
-        
         </compDetail>
     </div>
 </template>
@@ -15,6 +13,7 @@ export default {
 
     computed: {
         details() {
+            
             return this.$store.getters['about/getDetails']        
         }
     },

@@ -1,8 +1,8 @@
 <template>
     <section class="about-us">
         <comp-details/>
-    </section>
         <comp-headquarters/>
+    </section>
 </template>
 
 <script>

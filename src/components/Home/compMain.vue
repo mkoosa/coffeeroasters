@@ -1,9 +1,9 @@
 <template>
     <div class="main">
-    <comp-introduction/>
-    <comp-collection/>
-    <comp-reason/>
-    <comp-instruction/>
+        <comp-introduction />
+        <comp-collection />
+        <comp-reason />
+        <comp-instruction />
     </div>
 </template>
 
@@ -16,21 +16,8 @@ import compInstruction from './compInstruction.vue';
 
 export default {
 
-components: {compIntroduction, compCollection, compReason, compInstruction}
-
-
-
+    components: { compIntroduction, compCollection, compReason, compInstruction }
 }
-
-
-
 </script>
-
-<style scoped>
-.main{
-    margin: 3rem 0;
-}
-
-
-</style>
+<style scoped></style>
 

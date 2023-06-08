@@ -1,5 +1,5 @@
 <template v-bind:detail="detail">
-    <div :class="['detail', createClass(detail.name)]">
+    <div :class="['detail', createClass(detail), { isPlan: isPlan }]">
         <picture>
             <source class="detail__img" media="(min-width: 768px) and (max-width: 1199px)" :srcset="detail.imgTablet"
                 alt="coffee">
@@ -15,11 +15,20 @@
 <script>
 
 export default {
-    props: ['detail'],
+    props: ['detail', 'isPlan'],
+
+    data() {
+        return {
+            some: 'detail'
+        }
+    },
 
     methods: {
         createClass(value) {
-            return 'detail--' + value.split(' ')[1]
+            if (!value) return;
+            let { name } = value;
+            name = name.split(' ');
+            return name[1]
         }
     },
 }
@@ -33,17 +42,23 @@ export default {
     text-align: center;
 }
 
+.isPlan .detail__header {
+    font-size: 4.3rem;
+}
+
 .detail__img {
     border-radius: 1rem;
 }
 
-.detail--us {
+.detail.us,
+.a {
     position: relative;
     z-index: 10;
     color: var(--white);
 }
 
-.detail--us .detail__content {
+.detail.us .detail__content,
+.detail.a .detail__content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -52,29 +67,33 @@ export default {
     width: 75%;
 }
 
-.detail--commitment {
+.detail.a.isPlan .detail__content {
+    width: 86%;
+}
+
+.detail.commitment {
     color: var(--dark-grey-blue);
 }
 
-.detail--quality {
+.detail.quality {
     position: relative;
     color: var(--white);
 }
 
-.detail--quality .detail__img {
+.detail.quality .detail__img {
     margin-bottom: 2em;
     width: 80%;
     position: relative;
     z-index: 20;
 }
 
-.detail--quality .detail__content {
+.detail.quality .detail__content {
     padding: 0 2.8rem;
     position: relative;
     z-index: 20;
 }
 
-.detail--quality::after {
+.detail.quality::after {
     top: 8rem;
     left: 0;
     content: '';
@@ -101,16 +120,20 @@ export default {
 }
 
 @media only screen and (min-width: 768px) {
-    .detail--us {
+
+    .detail.us,
+    .detail.a {
         text-align: left;
     }
 
-    .detail--us .detail__content {
+    .detail.us .detail__content,
+    .detail.a .detail__content,
+    .detail.a.isPlan .detail__content {
         width: 50%;
         left: 35%;
     }
 
-    .detail--commitment {
+    .detail.commitment {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -121,28 +144,28 @@ export default {
         justify-content: space-around;
     }
 
-    .detail--commitment picture {
+    .detail.commitment picture {
         flex-basis: 40%;
     }
 
-    .detail--commitment .detail__content {
+    .detail.commitment .detail__content {
         flex-basis: 50%;
         text-align: left;
     }
 
-    .detail--commitment .detail__header {
+    .detail.commitment .detail__header {
         margin: 0;
     }
 
-    .detail--quality::after {
+    .detail.quality::after {
         height: 55rem;
     }
 
-    .detail--quality .detail__img {
+    .detail.quality .detail__img {
         max-width: 70rem;
     }
 
-    .detail--quality .detail__content {
+    .detail.quality .detail__content {
         margin: 0 auto;
         max-width: 70%;
     }
@@ -154,28 +177,31 @@ export default {
         margin-bottom: 18rem;
     }
 
-    .detail--commitment {
+    .detail.commitment {
         margin-bottom: 30rem;
     }
 
-    .detail--commitment .detail__header {
+    .detail.commitment .detail__header {
         margin: 0;
         margin-bottom: 3rem;
     }
 
-    .detail__header {
+    .detail.header {
         font-size: 4rem;
         line-height: 5rem;
         text-align: left;
         white-space: nowrap;
     }
 
-    .detail--us .detail__content {
+    .detail.us .detail__content,
+    .detail.a .detail__content,
+    .detail.a.isPlan .detail__content {
         width: 30%;
         left: 20%;
     }
 
-    .detail--us .detail__text {
+    .detail.us .detail__text,
+    .detail.a .detail__text {
         color: var(--white);
     }
 
@@ -183,7 +209,8 @@ export default {
         max-width: 100%;
     }
 
-    .detail--us .detail__img {
+    .detail.us .detail__img,
+    .detail.a .detail__img {
         width: 100%;
     }
 
@@ -193,7 +220,7 @@ export default {
 
     }
 
-    .detail--quality {
+    .detail.quality {
         padding-bottom: 10rem;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -208,17 +235,17 @@ export default {
         background-color: var(--dark-grey-blue);
     }
 
-    .detail--quality::after {
+    .detail.quality::after {
         display: none;
     }
 
-    .detail--quality picture {
+    .detail.quality picture {
         order: 1;
         margin-top: -12rem;
         width: 40%;
     }
 
-    .detail--quality .detail__content {
+    .detail.quality .detail__content {
         order: 0;
         flex-basis: 40%;
     }

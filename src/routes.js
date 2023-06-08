@@ -5,7 +5,7 @@ import { createRouter, createWebHistory } from "vue-router";
 // components
 import Home from './components/Home/compMain.vue';
 import AboutUs from './components/About/compAboutus.vue';
-import Create from './components/Create/compCreate.vue'
+import Plan from './components/Plan/compPlan.vue'
 
 
 const router = createRouter({
@@ -22,8 +22,8 @@ const router = createRouter({
             name: 'about us'
         },
         {
-            path: '/createYourLlane',
-            component: Create,
+            path: '/plan',
+            component: Plan,
             name: 'create your plane'
 
         }
