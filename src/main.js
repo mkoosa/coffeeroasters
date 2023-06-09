@@ -13,7 +13,8 @@ import Router from './routes'
 
 // components
 import MainButton from './Utils/buttons/compButtonMain.vue';
-import compFooter from './components/Footer/compFooter.vue'
+import compFooter from './components/Footer/compFooter.vue';
+import compLoader from './Utils/compLoader.vue'
 
 library.add(fas, far, fab)
 dom.watch();
@@ -21,6 +22,7 @@ const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.component('btn-main', MainButton);
 app.component('comp-footer', compFooter);
+app.component('comp-loader', compLoader);
 app.use(Store);
 app.use(Router)
 app.mount('#app');

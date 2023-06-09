@@ -1,12 +1,11 @@
-/*eslint-disable*/
-import { database, ref, onValue } from "../../firebase.js";
+import { completeValueFromFirebase } from "@/Tools/loader.js";
 
 const asideModule = {
   namespaced: true,
   state() {
     return {
       headquarters: "",
-      details:""
+      details: "",
     };
   },
   mutations: {
@@ -30,14 +29,9 @@ const asideModule = {
   },
 
   actions: {
-
     async getHeadquarters({ commit }) {
       try {
-        const collectionRef = ref(database, "headquarters");
-        onValue(collectionRef, (snapshot) => {
-          const data = snapshot.val();
-          commit("setHeadquarters", data);
-        });
+        completeValueFromFirebase(commit, "headquarters", "setHeadquarters");
       } catch (error) {
         console.log(error);
       }
@@ -45,11 +39,7 @@ const asideModule = {
 
     async getDetails({ commit }) {
       try {
-        const collectionRef = ref(database, "details");
-        onValue(collectionRef, (snapshot) => {
-          const data = snapshot.val();
-          commit("setDetails", data);
-        });
+        completeValueFromFirebase(commit, "details", "setDetails");
       } catch (error) {
         console.log(error);
       }

@@ -1,13 +1,12 @@
-import { database, ref, onValue } from "../../firebase.js";
-
+import { completeValueFromFirebase } from "@/Tools/loader.js";
 
 const homeModule = {
   namespaced: true,
   state() {
     return {
-      collection: '',
-      reasons: '',
-      instruction:''
+      collection: "",
+      reasons: "",
+      instruction: "",
     };
   },
 
@@ -38,42 +37,28 @@ const homeModule = {
   actions: {
     async getCoffeeCollection({ commit }) {
       try {
-        const collectionRef = ref(database, "collection");
-        onValue(collectionRef, (snapshot) => {
-          const data = snapshot.val();
-          console.log(data);
-          commit("setCollection", data);
-        });
+        completeValueFromFirebase(commit, "collection", "setCollection");
       } catch (error) {
         console.log(error);
       }
     },
+
     async getReasons({ commit }) {
       try {
-        const collectionRef = ref(database, "reason");
-        onValue(collectionRef, (snapshot) => {
-          const data = snapshot.val();
-          commit("setReasons", data);
-        });
+        completeValueFromFirebase(commit, "reason", "setReasons");
       } catch (error) {
         console.log(error);
       }
     },
+
     async getInstruction({ commit }) {
       try {
-        const collectionRef = ref(database, "instruction");
-        onValue(collectionRef, (snapshot) => {
-          const data = snapshot.val();
-          commit("setInstruction", data);
-        });
+        completeValueFromFirebase(commit, "instruction", "setInstruction");
       } catch (error) {
         console.log(error);
       }
     },
   },
-
-  
-  
 };
 
 export default homeModule;

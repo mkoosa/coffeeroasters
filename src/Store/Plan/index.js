@@ -1,4 +1,4 @@
-import { database, ref, onValue } from "../../firebase.js";
+import { completeValueFromFirebase } from "@/Tools/loader.js";
 
 const planModule = {
   namespaced: true,
@@ -23,12 +23,7 @@ const planModule = {
   actions: {
     async getDetails({ commit }) {
       try {
-        const collectionRef = ref(database, "plan");
-        onValue(collectionRef, (snapshot) => {
-          const data = snapshot.val();
-          // console.log(data);
-          commit("setDetails", data);
-        });
+        completeValueFromFirebase(commit, "plan", "setDetails");
       } catch (error) {
         console.log(error);
       }

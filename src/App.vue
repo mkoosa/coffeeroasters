@@ -1,18 +1,30 @@
 <template>
   <div class="wrapper">
-    <router-view />
-    <comp-sidemenu />
     <comp-header />
+    <router-view/>
+    <comp-loader v-if="isLoader" />
+
+    <comp-sidemenu />
     <comp-footer />
-  </div>
+    
+    </div>
+  
 </template>
 
 <script>
 import compHeader from './components/Header/compHeader.vue';
 import compSidemenu from './components/Menu/compSidemenu.vue';
+import { mapGetters} from 'vuex'
 
 export default {
   components: { compHeader, compSidemenu },
+
+  computed: {
+    ...mapGetters({
+    isLoader: 'load/getLoader'
+  })
+}
+
 
 }
 </script>

@@ -1,10 +1,10 @@
 <template>
-    <div class="main">
+    <section class="main">
         <comp-introduction />
         <comp-collection />
         <comp-reason />
         <comp-instruction />
-    </div>
+    </section>
 </template>
 
 <script>
@@ -14,9 +14,12 @@ import compCollection from './compCollection.vue';
 import compReason from './compReason.vue';
 import compInstruction from './compInstruction.vue';
 
+
 export default {
 
-    components: { compIntroduction, compCollection, compReason, compInstruction }
+    components: { compIntroduction, compCollection, compReason, compInstruction },
+
+
 }
 </script>
 <style scoped></style>
