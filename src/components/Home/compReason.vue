@@ -194,6 +194,10 @@ export default {
     }
 
     @media only screen and (min-width: 1200px) {
+
+        .reason{
+            margin-top: 15rem;
+        }
         .reason__header {
             font-size: 4.7rem;
         }

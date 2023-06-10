@@ -18,7 +18,6 @@
 
 <script>
 export default {
-
     data() {
         return {
             header: 'Our headquarters'
@@ -40,7 +39,7 @@ export default {
 <style scoped>
 .headquarters {
     text-align: center;
-    margin-top: 17rem;
+    margin-top: 10rem;
     color: var(--dark-grey-blue);
 }
 
@@ -49,7 +48,7 @@ export default {
 }
 
 .headquarters__header {
-    margin: 6rem 0;
+    margin: 0 0 6rem 0;
     font-size: 2.4rem;
     opacity: .5;
     font-weight: 800;
@@ -75,6 +74,7 @@ export default {
 @media only screen and (min-width:768px) {
     .headquarters {
         text-align: left;
+        margin-top: 17rem;
     }
 
     .headquarters__list {

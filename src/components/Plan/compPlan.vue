@@ -2,7 +2,7 @@
 <template>
     <section class="plan">
         <compDetail :detail="detail" :isPlan="isPlan" />
-        <comp-instruction></comp-instruction>
+        <comp-instruction :instructions="instructions" />
     </section>
 </template>
 <script>
@@ -12,22 +12,25 @@ import compInstruction from '../Home/compInstruction.vue';
 export default {
     data() {
         return {
-            isPlan: true
+            isPlan: true,
         }
     },
 
     components: { compDetail, compInstruction },
     computed: {
+        instructions() {
+            return this.$store.getters['plan/getInstruction']
+        },
+        
         detail() {
             return this.$store.getters['plan/getDetails']
-        }
+        },
     },
 
     mounted() {
-        this.$store.dispatch('plan/getDetails')
+        this.$store.dispatch('plan/getDetails');
+        this.$store.dispatch('plan/getInstruction')
     }
-
-
 }
 
 </script>

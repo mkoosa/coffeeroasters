@@ -11,7 +11,6 @@
 import compNav from '../Header/compNav.vue';
 export default {
     components: { compNav },
-
     computed: {
         isNavActive() {
             return this.$store.getters['side/getSideMenu']

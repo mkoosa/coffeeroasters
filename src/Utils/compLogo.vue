@@ -8,14 +8,6 @@
     </div>
 </template>
 
-
-<script>
-export default {
-
-}
-
-</script>
-
 <style scoped>
 .logo__wrapper {
     display: flex;
@@ -30,7 +22,6 @@ export default {
 .bean {
     min-width: 15px;
 }
-
 
 .bean--first {
     position: absolute;
@@ -79,14 +70,11 @@ export default {
     .bean {
         width: 20px;
     }
-
 }
 
 @media only screen and (min-width: 1200px) {
     .logo__heading {
         font-size: 3.3rem;
-
     }
-
 }
 </style>

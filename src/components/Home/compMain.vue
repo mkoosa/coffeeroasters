@@ -1,26 +1,54 @@
 <template>
     <section class="main">
-        <comp-introduction />
+        <comp-detail :detail="detail" :isHome="isHome">
+        <comp-button-main :text="btnTxt"/>
+        </comp-detail>
         <comp-collection />
         <comp-reason />
-        <comp-instruction />
+        <comp-instruction :instructions="instructions"/>
     </section>
 </template>
 
 <script>
 
-import compIntroduction from './compIntroduction.vue';
+import compDetail from '../About/compDetail..vue';
 import compCollection from './compCollection.vue';
 import compReason from './compReason.vue';
 import compInstruction from './compInstruction.vue';
+import compButtonMain from '@/Utils/buttons/compButtonMain.vue';
 
 
 export default {
+    components: { compCollection, compReason, compInstruction, compDetail, compButtonMain },
+    data() {
+        return {
+            btnTxt: 'Create your plane',
+            isHome:true
+        }
+    },
 
-    components: { compIntroduction, compCollection, compReason, compInstruction },
+    computed: {
+        detail() {
+            return this.$store.getters['home/getDetails']
+        },
+
+        instructions() {
+            return this.$store.getters['home/getInstruction']
+        }
+    },
+
+    mounted() {
+        this.$store.dispatch('home/getDetails');
+        this.$store.dispatch('home/getInstruction')
+    },
 
 
 }
 </script>
-<style scoped></style>
+<style scoped>
+.main{
+    margin-top: 6rem;
+
+}
+</style>
 

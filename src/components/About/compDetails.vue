@@ -8,9 +8,7 @@
 <script>
 import compDetail from './compDetail..vue';
 export default {
-
     components: { compDetail },
-
     computed: {
         details() {
             
@@ -24,6 +22,3 @@ export default {
 }
     
 </script>
-<style scoped>
-
-</style>

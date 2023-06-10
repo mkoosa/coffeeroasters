@@ -3,13 +3,14 @@
         <h2 class="instruction__header" v-text="textHeader"></h2>
         <comp-steps class="active"></comp-steps>
         <ul class="instruction__list">
-            <li class="instruction__item" v-for="instruction in instructions" :key="instruction.index">
+            <li :instructions="instructions" class="instruction__item" v-for="instruction in instructions"
+                :key="instruction.index">
                 <p class="item__index" v-text="instruction.index"></p>
                 <h3 class="item__header" v-text="instruction.name"></h3>
                 <p class="item__paragraph" v-text="instruction.description"></p>
             </li>
         </ul>
-        <comp-button :text="text" class="btn"></comp-button>
+        <comp-button :text="btnTxt" class="btn"></comp-button>
     </section>
 </template>
 
@@ -20,23 +21,14 @@ import compButton from '@/Utils/buttons/compButtonMain.vue';
 import compSteps from '@/Utils/compSteps.vue';
 
 export default {
+    props: ['instructions'],
     components: { compButton, compSteps },
     data() {
         return {
             textHeader: 'How it works',
-            text: 'Create your plane'
+            btnTxt: 'Create your plane'
 
         }
-    },
-
-    computed: {
-        instructions() {
-            return this.$store.getters['home/getInstruction']
-        }
-    },
-
-    mounted() {
-        this.$store.dispatch('home/getInstruction')
     },
 }
 </script>
@@ -114,5 +106,12 @@ export default {
         margin-top: 0rem;
     }
 
+}
+
+@media only screen and (min-width: 1200px) {
+
+    .instruction {
+        margin: 15rem 0 12rem 0;
+    }
 }
 </style>

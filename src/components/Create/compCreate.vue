@@ -4,7 +4,6 @@
     </div>
 </template>
 
-
 <style scoped>
 .create {
     margin-top: 10rem;

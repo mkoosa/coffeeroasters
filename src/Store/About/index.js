@@ -12,7 +12,6 @@ const asideModule = {
     setHeadquarters(state, payload) {
       state.headquarters = payload;
     },
-
     setDetails(state, payload) {
       state.details = payload;
     },
@@ -22,7 +21,6 @@ const asideModule = {
     getHeadquarters(state) {
       return state.headquarters;
     },
-
     getDetails(state) {
       return state.details;
     },
@@ -31,7 +29,7 @@ const asideModule = {
   actions: {
     async getHeadquarters({ commit }) {
       try {
-        completeValueFromFirebase(commit, "headquarters", "setHeadquarters");
+        completeValueFromFirebase(commit, "headquartersAbout", "setHeadquarters");
       } catch (error) {
         console.log(error);
       }
@@ -39,7 +37,7 @@ const asideModule = {
 
     async getDetails({ commit }) {
       try {
-        completeValueFromFirebase(commit, "details", "setDetails");
+        completeValueFromFirebase(commit, "detailsAbout", "setDetails");
       } catch (error) {
         console.log(error);
       }

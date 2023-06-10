@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
     <comp-header />
-    <router-view/>
     <comp-loader v-if="isLoader" />
+    <router-view />
 
     <comp-sidemenu />
     <comp-footer />
