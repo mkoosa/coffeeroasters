@@ -6,6 +6,7 @@ const planModule = {
     return {
       details: "",
       instruction: "",
+      preferences:""
     };
   },
 
@@ -16,6 +17,10 @@ const planModule = {
     getInstruction(state) {
       return state.instruction;
     },
+
+    getPreferences(state) {
+      return state.preferences
+    }
   },
 
   mutations: {
@@ -26,6 +31,10 @@ const planModule = {
     setInstruction(state, payload) {
       state.instruction = payload;
     },
+
+    setPreferences(state, payload) {
+      state.preferences = payload
+    }
   },
 
   actions: {
@@ -44,6 +53,14 @@ const planModule = {
         console.log(error);
       }
     },
+
+    async getPreferences({ commit }) {
+      try {
+        completeValueFromFirebase(commit, "preferencePlan", "setPreferences");
+      } catch (error) {
+        console.log(error);
+      }
+    }
   },
 };
 

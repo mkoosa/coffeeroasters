@@ -6,24 +6,23 @@
 
     <comp-sidemenu />
     <comp-footer />
-    
-    </div>
-  
+
+  </div>
 </template>
 
 <script>
 import compHeader from './components/Header/compHeader.vue';
 import compSidemenu from './components/Menu/compSidemenu.vue';
-import { mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   components: { compHeader, compSidemenu },
 
   computed: {
     ...mapGetters({
-    isLoader: 'load/getLoader'
-  })
-}
+      isLoader: 'load/getLoader'
+    })
+  }
 
 
 }
@@ -78,14 +77,22 @@ h4 {
   --dark-cyan-hover: #4ce1df;
   --dark-grey-blue: #333D4B;
   --pale-orange: #fdd6ba;
-  --light-cream: #fefcf7;
+  --light-cream: #f4f2eb;
   --grey: #616163;
+  --light-grey: #b2b2b9;
   --white: #ffff;
 }
 
 .main {
   position: relative;
   z-index: 3;
+}
+
+/* accordion default reset */
+.accordion-list .accordion-item--open>.accordion-item__summary,
+.accordion-list .accordion-item {
+  background-color: var(--white) !important;
+  border: none !important;
 }
 
 @media only screen and (min-width: 768px) {

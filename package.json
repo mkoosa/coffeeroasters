@@ -18,6 +18,7 @@
     "firebase": "^9.22.1",
     "vue": "^3.2.13",
     "vue-router": "^4.2.2",
+    "vue3-rich-accordion": "^0.0.7",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

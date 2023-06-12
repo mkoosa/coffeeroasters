@@ -8,7 +8,9 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import Store from './Store/index';
-import Router from './routes'
+import Router from './routes';
+import { useAccordion } from "vue3-rich-accordion";
+import "vue3-rich-accordion/accordion-library-styles.css";
 
 
 // components
@@ -24,7 +26,8 @@ app.component('btn-main', MainButton);
 app.component('comp-footer', compFooter);
 app.component('comp-loader', compLoader);
 app.use(Store);
-app.use(Router)
+app.use(Router);
+app.use(useAccordion);
 app.mount('#app');
 
 
