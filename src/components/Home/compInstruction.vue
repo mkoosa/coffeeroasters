@@ -1,8 +1,8 @@
 <template>
     <section class="instruction">
-        <h2 class="instruction__header" v-text="textHeader"></h2>
+        <slot></slot>
         <comp-steps class="active"></comp-steps>
-        <ul class="instruction__list">
+        <ul class="instruction__list" :style="{ color: palette.color, backgroundColor: palette.backgroundColor }">
             <li :instructions="instructions" class="instruction__item" v-for="instruction in instructions"
                 :key="instruction.index">
                 <p class="item__index" v-text="instruction.index"></p>
@@ -10,35 +10,37 @@
                 <p class="item__paragraph" v-text="instruction.description"></p>
             </li>
         </ul>
-        <comp-button :text="btnTxt" class="btn"></comp-button>
     </section>
 </template>
 
 <script>
-
-
-import compButton from '@/Utils/buttons/compButtonMain.vue';
 import compSteps from '@/Utils/compSteps.vue';
 
 export default {
-    props: ['instructions'],
-    components: { compButton, compSteps },
+    props: ['instructions', 'palette'],
+    components: { compSteps },
     data() {
         return {
             textHeader: 'How it works',
-            btnTxt: 'Create your plane'
-
+            btnTxt: 'Create your plane',
         }
     },
 }
 </script>
 
 <style scoped>
+/* section home  */
 .instruction {
     text-align: center;
+    position: relative;
 }
 
-.instruction__header {
+.instruction__list {
+    border-radius: 1rem;
+    padding: 0 3rem;
+}
+
+.instruction :slotted(.instruction__header) {
     margin: 5rem 0;
     font-size: 2.6rem;
     font-weight: 800;
@@ -56,7 +58,7 @@ export default {
     margin: 2rem 0;
     font-size: 2.7rem;
     font-weight: 800;
-    color: var(--dark-grey-blue);
+    /* color: var(--dark-grey-blue); */
     opacity: .9;
 }
 
@@ -76,6 +78,16 @@ export default {
     margin: 4rem 0;
 }
 
+/* section plan  */
+.plan .instruction__list {
+    max-width: 145rem;
+    margin: 10rem 0 0 0;
+    padding: 6rem 3rem;
+    position: relative;
+    width: 100vw;
+    left: -2rem;
+}
+
 
 @media only screen and (min-width: 768px) {
     .active {
@@ -85,7 +97,7 @@ export default {
     }
 
     .instruction {
-        margin-top: 10rem;
+
         text-align: left;
     }
 
@@ -106,7 +118,11 @@ export default {
         margin-top: 0rem;
     }
 
+    .plan .instruction__list {
+        left: -3.5rem;
+    }
 }
+
 
 @media only screen and (min-width: 1200px) {
 
