@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import compAccordion from '@/Utils/compAccordion.vue';
+import compAccordion from './compAccordion.vue';
 export default {
     components: { compAccordion },
     computed: {
@@ -26,7 +26,7 @@ export default {
 
 <style scoped>
 .preferences{
-    margin-top: 8rem;
+    margin-top: 12rem;
 }
 
 .preference{

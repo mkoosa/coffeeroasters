@@ -6,7 +6,8 @@ const planModule = {
     return {
       details: "",
       instruction: "",
-      preferences:""
+      preferences: "",
+      userPreferences: ["", "", "", "", ""],
     };
   },
 
@@ -19,8 +20,8 @@ const planModule = {
     },
 
     getPreferences(state) {
-      return state.preferences
-    }
+      return state.preferences;
+    },
   },
 
   mutations: {
@@ -33,8 +34,16 @@ const planModule = {
     },
 
     setPreferences(state, payload) {
-      state.preferences = payload
-    }
+      state.preferences = payload;
+    },
+
+    setUserPreferences(state, payload) {
+      state.userPreferences[payload.index] = payload.value;
+    },
+
+    resetUserPreference(state, payload) {
+      state.userPreferences[payload] = "";
+    },
   },
 
   actions: {
@@ -60,7 +69,23 @@ const planModule = {
       } catch (error) {
         console.log(error);
       }
-    }
+    },
+
+    updateUserPreferences({ commit }, payload) {
+      try {
+        commit("setUserPreferences", payload);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    resetPreference({ commit }, payload) {
+      try {
+        commit("resetUserPreference", payload);
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 };
 
