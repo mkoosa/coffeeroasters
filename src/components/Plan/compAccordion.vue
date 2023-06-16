@@ -97,7 +97,7 @@ export default {
 
 .question__arrow {
     color: var(--dark-cyan);
-    font-size: 2.5rem;
+    font-size: 2rem;
 
 }
 

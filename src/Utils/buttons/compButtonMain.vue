@@ -1,23 +1,22 @@
 <template>
-    <router-link v-if="!isDisabled" :to="{ name: 'create your plane' }">
-        <button v-if="isPlan" :class="['main-btn']" v-text="btnTxt" tabindex="0" :disabled="isDisabled"></button>
-        <button v-else :class="['main-btn']" v-text="text" tabindex="0" :disabled="isDisabled"></button>
+    <router-link v-if="!completed" :to="{ name: 'create your plane' }">
+        <button v-if="isPlan" :class="['main-btn']" v-text="btnTxt" tabindex="0" :disabled="completed"></button>
+        <button v-else :class="['main-btn']" v-text="text" tabindex="0" :disabled="completed"></button>
     </router-link>
-
     <router-link v-else :to="{ name: 'create your plane' }" :style="{
         pointerEvents: 'none',
     }">
         <button v-if="isPlan" :class="['main-btn', { 'btn--grey': isPlan }]" v-text="btnTxt" tabindex="0"
-            :disabled="isDisabled"></button>
+            :disabled="!completed"></button>
         <button v-else :class="['main-btn', { 'btn--grey': isPlan }]" v-text="text" tabindex="0"
-            :disabled="isDisabled"></button>
+            :disabled="!completed"></button>
     </router-link>
 </template>
 
 <script>
 export default {
-    props: ['text'],
-    inject: ['isDisabled', 'isPlan', 'btnTxt']
+    props: ['text', 'completed'],
+    inject: ['isPlan', 'btnTxt']
 }
 
 </script>

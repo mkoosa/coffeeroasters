@@ -57,11 +57,7 @@ img {
   display: flex;
 }
 
-p {
-  font-family: 'Barlow', sans-serif;
-}
-
-li {
+li, p {
   font-family: 'Barlow', sans-serif;
 }
 

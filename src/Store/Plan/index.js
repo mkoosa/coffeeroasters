@@ -22,6 +22,10 @@ const planModule = {
     getPreferences(state) {
       return state.preferences;
     },
+
+    getUserPreferences(state) {
+      return state.userPreferences;
+    },
   },
 
   mutations: {
