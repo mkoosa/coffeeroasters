@@ -5,7 +5,7 @@
         <comp-instruction :instructions="instructions" :palette="dark" />
         <comp-preferences />
         <compSummary :summary="summary" />
-        <comp-button-main :completed="completed" />
+        <comp-button-main :userPreferencesCompleted="userPreferencesCompleted" :btnTxt="btnTxt"/>
 
     </section>
 </template>
@@ -21,20 +21,21 @@ export default {
     components: { compDetail, compInstruction, compPreferences, compButtonMain, compSummary },
     data() {
         return {
+            btnTxt: 'Create my plane',
             isPlan: true,
             dark: {
                 color: 'var(--white)',
                 backgroundColor: 'var(--dark-grey-blue)',
             },
             summary: true,
-            completed:true
+            userPreferencesCompleted: false
         }
     },
 
     provide() {
         return {
             isPlan: true,
-            btnTxt: 'Create my plane'
+            isMain:false
         }        
     },
     
@@ -56,7 +57,7 @@ export default {
         userPreferences: {
             handler: function () {
                 let value = this.userPreferences.includes("");
-                this.completed = value? true : false 
+                this.userPreferencesCompleted = value? false : true  
             },
             deep:true
         },

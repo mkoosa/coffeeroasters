@@ -11,7 +11,6 @@ export default {
     components: { compDetail },
     computed: {
         details() {
-            
             return this.$store.getters['about/getDetails']        
         }
     },

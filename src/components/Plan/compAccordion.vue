@@ -51,6 +51,7 @@ export default {
             const preference = this.selectedElements[0].childNodes[0].innerText;
             this.addUserPreferences(questionIndex, preference);
         },
+        
         avoidDoubleElement(element) {
             let target = false;
             let value = this.selectedElements.includes(element)

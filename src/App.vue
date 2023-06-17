@@ -3,27 +3,24 @@
     <comp-header />
     <comp-loader v-if="isLoader" />
     <router-view />
-
-    <comp-sidemenu />
+    <comp-side-menu />
     <comp-footer />
-
   </div>
 </template>
 
 <script>
 import compHeader from './components/Header/compHeader.vue';
-import compSidemenu from './components/Menu/compSidemenu.vue';
+import compSideMenu from './components/Menu/compSidemenu.vue';
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { compHeader, compSidemenu },
+  components: { compHeader, compSideMenu },
 
   computed: {
     ...mapGetters({
       isLoader: 'load/getLoader'
     })
   }
-
 
 }
 </script>

@@ -10,7 +10,6 @@
             ground ala <span v-if="userPreferences[3]">{{ userPreferences[3] }}</span><span v-else>__</span>,
             sent to me <span v-if="userPreferences[4]">{{ userPreferences[4] }}</span><span v-else>__</span>.”
         </p>
-        
     </div>
 </template>
 
