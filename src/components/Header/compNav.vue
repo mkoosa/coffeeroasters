@@ -1,8 +1,8 @@
 <template>
-    <ul class="nav-list" :class="['$attrs.class', { 'active': isSideMenuActive }]">
+    <ul class="nav-list" :class="['$attrs.class', { 'active': isSideMenuActive }]" @click="activateAlive">
         <li tabindex="0" :class="['nav-list__item', { 'nav-list__item--footer': footer, 'nav-list__item--side': side }]"
             v-for="detail in details" :key="detail">
-            <router-link :to="{ name: detail }" @click="hideSideMenu">
+            <router-link :to="{ name: detail, hash:'#summary'  }" @click="hideSideMenu">
                 {{ detail }}
             </router-link>
         </li>
@@ -10,7 +10,6 @@
 </template>
 
 <script>
-/*eslint-disable*/
 export default {
     props: ['footer', 'side'],
     data() {
@@ -21,6 +20,10 @@ export default {
     methods: {
         hideSideMenu() {
             this.$store.dispatch('side/hideSideMenu', false)
+        },
+
+        activateAlive() {
+            this.$store.dispatch('home/getKeepalive', true);
         }
     },
 

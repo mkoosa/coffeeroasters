@@ -8,7 +8,7 @@
             </template>
             <template #icon><i class="fas fa-solid fa-angle-down fa-lg question__arrow"></i></template>
             <div class="answer" ref="answer" v-for="answer in preference.answers" :key="answer.name"
-                @click="getSelectedElement(answer.name, preference.index)">
+                @click="getSelectedElement(answer.name, preference.index, answer)">
                 <h4 class="answer__header" v-text="answer.name"></h4>
                 <p class="answer__text" v-text="answer.description"></p>
             </div>
@@ -29,14 +29,15 @@ export default {
             selectedElements: [],
         }
     },
-
+    
     methods: {
-        getSelectedElement(option, questionIndex) {
+        getSelectedElement(option, questionIndex,answer) {
+            this.$store.dispatch('plan/getPrice', answer.price)
             let refElements = this.$refs.answer;
             let selectedElement = refElements.filter(refElement => refElement.children[0].innerText === option);
             this.changeBackGroundColor(selectedElement[0], questionIndex);
         },
-
+        
         changeBackGroundColor(element, questionIndex) {
             if (this.avoidDoubleElement(element)) {
                 this.$store.dispatch('plan/resetPreference', questionIndex);
@@ -45,6 +46,7 @@ export default {
             } else {
                 this.selectedElements.forEach(element => this.removeClass('checked', element))
                 this.addClass('checked', element)
+                
             }
             this.selectedElements = [];
             this.selectedElements.push(element);
@@ -77,7 +79,7 @@ export default {
         addUserPreferences(index, value) {
             this.$store.dispatch('plan/updateUserPreferences', { index, value })
         }
-    },
+    },  
 }
 
 </script>

@@ -2,7 +2,12 @@
   <div class="wrapper">
     <comp-header />
     <comp-loader v-if="isLoader" />
-    <router-view />
+    <router-view v-if="isKeepAlive" v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
+    <router-view v-else></router-view>
     <comp-side-menu />
     <comp-footer />
   </div>
@@ -18,10 +23,10 @@ export default {
 
   computed: {
     ...mapGetters({
-      isLoader: 'load/getLoader'
+      isLoader: 'load/getLoader',
+      isKeepAlive: 'home/getKeepAlive'
     })
   }
-
 }
 </script>
 
@@ -54,7 +59,8 @@ img {
   display: flex;
 }
 
-li, p {
+li,
+p {
   font-family: 'Barlow', sans-serif;
 }
 
@@ -72,7 +78,7 @@ h4 {
   --pale-orange: #fdd6ba;
   --light-cream: #f4f2eb;
   --grey: #616163;
-  --light-grey: #b2b2b9;
+  --light-grey: #969698;
   --white: #ffff;
 }
 
