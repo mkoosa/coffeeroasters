@@ -1,7 +1,7 @@
 <template>
     <section class="about-us">
         <comp-details />
-        <comp-headquarters />
+        <compHeadquarters/>
     </section>
 </template>
 
@@ -11,7 +11,6 @@ import compDetails from './compDetails.vue';
 
 export default {
     components: { compHeadquarters, compDetails },
-
 }
 
 </script>

@@ -1,38 +1,95 @@
 <template>
-    <div :class="['summary', { 'summary--summary': summary, 'summary--checkout': checkout }]">
-        <h2 :class="['summary__header', { 'summary__header--summary': summary, 'summary__header--checkout': checkout }]">{{
-            headerTxt }}</h2>
-        <p :class="['summary__content', { 'summary__content--summary': summary, 'summary__content--checkout': checkout }]">
-            “I drink my coffee as a <span v-if="userPreferences[0]">{{ userPreferences[0] }}</span><span v-else>__</span>
-            , with a <span v-if="userPreferences[1]">{{
-                userPreferences[1] }}</span><span v-else>__</span>
-            type of bean. <span v-if="userPreferences[2]">{{ userPreferences[2] }}</span><span v-else>__</span>
-            ground ala <span v-if="userPreferences[3]">{{ userPreferences[3] }}</span><span v-else>__</span>,
-            sent to me <span v-if="userPreferences[4]">{{ userPreferences[4] }}</span><span v-else>__</span>.”
-        </p>
+    <div :class="['summary', { 'summary--summary': summary && !checkOut, 'summary--checkout': checkOut }]" id="summary">
+        <router-link @click="back" :to="{ name: 'create your plane' }">
+            <i :class="['fa-regular', 'fa-square-caret-left', 'back', { 'back': checkOut }]"></i>
+        </router-link>
+        <h2
+            :class="['summary__header', { 'summary__header--summary': summary && !checkOut, 'summary__header--checkout': checkOut }]">
+            {{
+                headerTxt }}</h2>
+        <div :class="{ 'summary__content-wrapper': checkOut }">
+            <p
+                :class="['summary__content', { 'summary__content--summary': summary && !checkOut, 'summary__content--checkout': checkOut }]">
+                “I drink my coffee as a <span v-if="userPreferences[0]">{{ userPreferences[0] }} </span><span
+                    v-else>__</span>
+                , with a <span v-if="userPreferences[1]">{{
+                    userPreferences[1] }} </span><span v-else>__</span>
+                type of bean. <span v-if="userPreferences[2]">{{ userPreferences[2] }} </span><span v-else>__</span>
+                ground ala <span v-if="userPreferences[3]">{{ userPreferences[3] }} </span><span v-else>__</span>,
+                sent to me <span v-if="userPreferences[4]">{{ userPreferences[4] }} </span><span v-else>__</span>.”
+            </p>
+            <p :class="{ 'summary__checkoutTxt': checkOut }" v-if="checkOut" v-text="checkOutTxt">
+            </p>
+            <comp-button-main v-if="checkOut" :btnTxt="btnTxt + ' ' + price.toFixed(2) + '$'" :resetKeepAlive="resetKeepAlive"  />
+        </div>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import compButtonMain from '@/Utils/buttons/compButtonMain.vue';
 
 export default {
-    props: ['summary', 'checkout'],
+    props: ['summary'],
+    components: { compButtonMain },
+    emits:['some'],
 
     data() {
         return {
             headerTxt: 'order summary',
+            btnTxt: 'Checkout'
+        }
+    },
+
+    mounted() {
+        this.$store.dispatch('plan/getCheckOut')
+    },
+
+    activated() {
+        this.$store.dispatch('home/getKeepalive', true);
+    },
+
+    methods: {
+        back() {
+            this.$store.dispatch('plan/changeCheckOutStatus', false);
+        },
+        resetKeepAlive() {
+            this.$store.dispatch('home/getKeepalive', false);
+            this.$store.dispatch('plan/resetUserPreferences');
         }
     },
 
     computed: {
-        userPreferences() {
-            return this.$store.getters['plan/getUserPreferences']
+        ...mapGetters({
+            userPreferences: 'plan/getUserPreferences',
+            checkOut: 'plan/getCheckOutStatus',
+            checkOutTxt: 'plan/getCheckOutTxt',
+            price:'plan/getPrice'
+        })
+    },
+
+    provide() {
+        return {
+            isDisabled: true,
+            isPlan: false,
+            isMain: false,
+            isCheck: true
         }
     },
 }
 </script>
 
 <style scoped>
+.back {
+    color: var(--dark-cyan);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+
+}
+
 .summary {
     display: flex;
     flex-direction: column;
@@ -42,12 +99,33 @@ export default {
     color: var(--white);
     border-radius: 1rem;
     text-align: left;
-
 }
 
 .summary--summary {
     padding: 6rem 2rem;
 }
+
+.summary--checkout {
+    position: fixed;
+    top: -7rem;
+    left: 2rem;
+    right: 2rem;
+    background-color: var(--white);
+    border: .1rem solid var(--dark-cyan);
+    z-index: 1000;
+}
+
+.summary__header--checkout {
+    padding: 2.5rem 2rem;
+    background-color: var(--dark-grey-blue);
+    text-transform: capitalize;
+    font-size: 2.6rem;
+    font-weight: 900;
+    letter-spacing: .05rem;
+
+}
+
+
 
 .summary__header--summary {
     margin-bottom: 1.5rem;
@@ -59,7 +137,12 @@ export default {
 
 }
 
-.summary__content--summary {
+.summary__content-wrapper {
+    padding: 0 2rem;
+}
+
+.summary__content--summary,
+.summary__content--checkout {
     font-size: 2.9rem;
     font-weight: 800;
     font-family: 'Fraunces', serif;
@@ -67,10 +150,36 @@ export default {
 
 }
 
-.summary__content--summary span {
-    text-transform: capitalize;
-    font-size: 3.1rem;
-    color: var(--dark-cyan);
+.summary__content--checkout {
+    font-size: 2.3rem;
+    color: var(--grey);
+    margin-top: 3rem;
+    opacity: .8;
+    font-weight: 900;
 
+}
+
+.summary__content--summary span,
+.summary__content--checkout span {
+    text-transform: capitalize;
+    font-size: 2.8rem;
+    color: var(--dark-cyan);
+    /* opacity: 1 !important; */
+
+}
+
+.summary__content--checkout span {
+    font-size: 2.6rem;
+
+
+}
+
+.summary__checkoutTxt {
+    margin: 2rem 0;
+    color: var(--grey);
+    font-size: 1.5rem;
+    line-height: 3rem;
+    font-weight: 400;
+    text-shadow: .2rem .2rem -2rem;
 }
 </style>

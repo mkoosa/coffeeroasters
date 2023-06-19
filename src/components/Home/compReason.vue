@@ -31,6 +31,7 @@ export default {
     mounted() {
         this.$store.dispatch('home/getReasons')
     },
+    
     computed: {
         reasons() {
             return this.$store.getters['home/getReasons']

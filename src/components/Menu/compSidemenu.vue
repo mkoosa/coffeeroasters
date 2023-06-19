@@ -26,7 +26,6 @@ export default {
     top: 8rem;
     width: 100%;
     left: 0;
-    /* background-color: var(--dark-grey-blue); */
     background: -webkit-linear-gradient(#fff, #fff, transparent) !important;
     z-index: 600;
     transition: height .3s

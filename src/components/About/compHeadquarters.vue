@@ -26,12 +26,8 @@ export default {
     computed: {
         headquarters() {
             return this.$store.getters['about/getHeadquarters']
-
         }
     },
-    mounted() {
-        this.$store.dispatch('about/getHeadquarters')
-    }
 }
 
 </script>

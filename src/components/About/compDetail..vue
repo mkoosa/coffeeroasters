@@ -82,9 +82,9 @@ export default {
     width: 75%;
 }
 
-.detail.a .detail__content{
+.detail.a .detail__content {
     height: 24rem;
-    
+
 }
 
 .detail.a.isPlan .detail__content,

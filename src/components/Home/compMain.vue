@@ -37,8 +37,9 @@ export default {
     provide() {
         return {
             isDisabled: false,
-            isPlan: false,
             isMain: true,
+            isPlan: false,
+            isCheck:false
         }
     },
     computed: {
@@ -52,6 +53,8 @@ export default {
         this.$store.dispatch('home/getDetails');
         this.$store.dispatch('home/getInstruction')
     },
+
+ 
 }
 </script>
 <style scoped>
