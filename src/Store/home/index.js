@@ -7,7 +7,8 @@ const homeModule = {
       collection: "",
       reasons: "",
       instruction: "",
-      details:""
+      details: "",
+      keepAlive: true,
     };
   },
 
@@ -24,6 +25,9 @@ const homeModule = {
     setDetails(state, payload) {
       state.details = payload;
     },
+    setKeepAlive(state, payload) {
+      state.keepAlive = payload;
+    },
   },
 
   getters: {
@@ -38,6 +42,9 @@ const homeModule = {
     },
     getDetails(state) {
       return state.details;
+    },
+    getKeepAlive(state) {
+      return state.keepAlive;
     },
   },
 
@@ -72,6 +79,10 @@ const homeModule = {
       } catch (error) {
         console.log(error);
       }
+    },
+
+    getKeepalive({ commit }, payload) {
+      commit("setKeepAlive", payload);
     },
   },
 };

@@ -1,5 +1,3 @@
-// /*eslint-disable*/
-
 import { createRouter, createWebHistory } from "vue-router";
 
 // components
@@ -27,7 +25,20 @@ const router = createRouter({
     },
   ],
   scrollBehavior(to, from, savedPosition) {
-    return savedPosition || { top: 0, behavior:"smooth" };
+    if (savedPosition) {
+      return savedPosition;
+    }
+    else if (to.fullPath !== '/' && to.fullPath !== '/aboutUs' && to.fullPath === '/plan'  ) {
+        return {
+        el: '#summary',
+        top: 90,
+        behavior: "smooth"
+      }
+    }
+    else {
+      return { top: 0, behavior: "smooth" };
+    }
+    
   },
 });
 

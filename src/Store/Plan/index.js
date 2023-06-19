@@ -8,6 +8,9 @@ const planModule = {
       instruction: "",
       preferences: "",
       userPreferences: ["", "", "", "", ""],
+      checkOutStatus: false,
+      checkoutTxt: "",
+      price: "",
     };
   },
 
@@ -25,6 +28,16 @@ const planModule = {
 
     getUserPreferences(state) {
       return state.userPreferences;
+    },
+
+    getCheckOutStatus(state) {
+      return state.checkOutStatus;
+    },
+    getCheckOutTxt(state) {
+      return state.checkoutTxt;
+    },
+    getPrice(state) {
+      return state.price;
     },
   },
 
@@ -47,6 +60,20 @@ const planModule = {
 
     resetUserPreference(state, payload) {
       state.userPreferences[payload] = "";
+    },
+    resetUserPreferences(state) {
+      state.userPreferences = ["", "", "", "", ""];
+    },
+
+    setCheckOutStatus(state, payload) {
+      state.checkOutStatus = payload;
+    },
+
+    setCheckOutTxt(state, payload) {
+      state.checkoutTxt = payload;
+    },
+    setPrice(state, payload) {
+      state.price = payload;
     },
   },
 
@@ -76,19 +103,35 @@ const planModule = {
     },
 
     updateUserPreferences({ commit }, payload) {
+      commit("setUserPreferences", payload);
+    },
+
+    resetUserPreferences({ commit }) {
+      commit("resetUserPreferences");
+    },
+
+    resetPreference({ commit }, payload) {
+      commit("resetUserPreference", payload);
+    },
+
+    changeCheckOutStatus({ commit }, payload) {
+      commit("setCheckOutStatus", payload);
+    },
+
+    async getCheckOut({ commit }) {
       try {
-        commit("setUserPreferences", payload);
+        completeValueFromFirebase(
+          commit,
+          "checkOutConfirmation",
+          "setCheckOutTxt"
+        );
       } catch (error) {
         console.log(error);
       }
     },
 
-    resetPreference({ commit }, payload) {
-      try {
-        commit("resetUserPreference", payload);
-      } catch (error) {
-        console.log(error);
-      }
+    getPrice({ commit }, payload) {
+      commit("setPrice", payload);
     },
   },
 };
