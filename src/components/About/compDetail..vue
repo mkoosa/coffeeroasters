@@ -15,7 +15,12 @@
 <script>
 
 export default {
-    props: ['detail', 'isPlan', 'isHome'],
+    props: {
+        detail: [Object, String], 
+        isPlan: Boolean,
+        isHome: Boolean
+    },
+    
     data() {
         return {
             some: 'detail'

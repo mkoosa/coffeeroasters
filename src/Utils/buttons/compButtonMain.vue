@@ -13,7 +13,12 @@
 
 <script>
 export default {
-    props: ['btnTxt', 'userPreferencesCompleted', 'resetKeepAlive'],
+    props: {
+        btnTxt: String,
+        userPreferencesCompleted: Boolean,
+        resetKeepAlive: Boolean
+    },
+
     inject: ['isPlan', 'isMain', 'isCheck'],
     emits: ['change'],
 

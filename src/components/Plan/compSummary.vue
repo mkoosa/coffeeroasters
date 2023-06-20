@@ -30,7 +30,10 @@ import { mapGetters } from 'vuex';
 import CompButtonMain from '@/Utils/buttons/CompButtonMain.vue';
 
 export default {
-    props: ['summary'],
+    props: {
+        summary: Boolean
+    },
+    
     components: { CompButtonMain },
     emits:['some'],
 

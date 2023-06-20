@@ -17,7 +17,14 @@
 import CompSteps from '@/Utils/CompSteps.vue';
 
 export default {
-    props: ['instructions', 'palette'],
+    props: {
+        instructions: [Object, String],
+        palette: Object
+    },
+
+        // ['instructions', 'palette'],
+    
+    
     components: { CompSteps },
     data() {
         return {

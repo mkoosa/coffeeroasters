@@ -11,7 +11,11 @@
 
 <script>
 export default {
-    props: ['footer', 'side'],
+    props: {
+        footer: Boolean,
+        side: Boolean
+    },
+    
     data() {
         return {
             details: ['home', 'about us', 'create your plane'],

@@ -22,22 +22,24 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { AccordionList, AccordionItem } from "vue3-rich-accordion";
 export default {
     components: { AccordionList, AccordionItem },
-    props: ['preference'],
+    props: {
+        preference: Object
+    },
 
     data() {
         return {
             selectedElements: [],
         }
     },
-    
+
     methods: {
-        getSelectedElement(option, questionIndex,answer) {
+        getSelectedElement(option, questionIndex, answer) {
             this.$store.dispatch('plan/getPrice', answer.price)
             let refElements = this.$refs.answer;
             let selectedElement = refElements.filter(refElement => refElement.children[0].innerText === option);
             this.changeBackGroundColor(selectedElement[0], questionIndex);
         },
-        
+
         changeBackGroundColor(element, questionIndex) {
             if (this.avoidDoubleElement(element)) {
                 this.$store.dispatch('plan/resetPreference', questionIndex);
@@ -46,14 +48,14 @@ export default {
             } else {
                 this.selectedElements.forEach(element => this.removeClass('checked', element))
                 this.addClass('checked', element)
-                
+
             }
             this.selectedElements = [];
             this.selectedElements.push(element);
             const preference = this.selectedElements[0].childNodes[0].innerText;
             this.addUserPreferences(questionIndex, preference);
         },
-        
+
         avoidDoubleElement(element) {
             let target = false;
             let value = this.selectedElements.includes(element)
@@ -79,7 +81,7 @@ export default {
         addUserPreferences(index, value) {
             this.$store.dispatch('plan/updateUserPreferences', { index, value })
         }
-    },  
+    },
 }
 
 </script>
