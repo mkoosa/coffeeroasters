@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import compHeader from './components/Header/compHeader.vue';
-import compSideMenu from './components/Menu/compSidemenu.vue';
+import CompHeader from './components/Header/CompHeader.vue';
+import CompSideMenu from './components/Menu/CompSidemenu.vue';
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { compHeader, compSideMenu },
+  components: { CompHeader, CompSideMenu },
 
   computed: {
     ...mapGetters({

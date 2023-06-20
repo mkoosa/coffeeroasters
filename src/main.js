@@ -14,17 +14,17 @@ import "vue3-rich-accordion/accordion-library-styles.css";
 
 
 // components
-import MainButton from './Utils/buttons/compButtonMain.vue';
-import compFooter from './components/Footer/compFooter.vue';
-import compLoader from './Utils/compLoader.vue'
+import MainButton from './Utils/buttons/CompButtonMain.vue';
+import CompFooter from './components/Footer/CompFooter.vue';
+import CompLoader from './Utils/CompLoader.vue'
 
 library.add(fas, far, fab)
 dom.watch();
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.component('btn-main', MainButton);
-app.component('comp-footer', compFooter);
-app.component('comp-loader', compLoader);
+app.component('comp-footer', CompFooter);
+app.component('comp-loader', CompLoader);
 app.use(Store);
 app.use(Router);
 app.use(useAccordion);

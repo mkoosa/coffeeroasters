@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import compLogo from '@/Utils/compLogo.vue';
-import compNav from '../Header/compNav.vue';
+import CompLogo from '@/Utils/CompLogo.vue';
+import CompNav from '../Header/CompNav.vue';
 
 export default {
     components: {
-        compLogo, compNav
+        CompLogo, CompNav
     },
 
     data() {

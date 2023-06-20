@@ -27,11 +27,11 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import compButtonMain from '@/Utils/buttons/compButtonMain.vue';
+import CompButtonMain from '@/Utils/buttons/CompButtonMain.vue';
 
 export default {
     props: ['summary'],
-    components: { compButtonMain },
+    components: { CompButtonMain },
     emits:['some'],
 
     data() {

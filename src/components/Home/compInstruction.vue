@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import compSteps from '@/Utils/compSteps.vue';
+import CompSteps from '@/Utils/CompSteps.vue';
 
 export default {
     props: ['instructions', 'palette'],
-    components: { compSteps },
+    components: { CompSteps },
     data() {
         return {
             textHeader: 'How it works',

@@ -16,7 +16,6 @@
 
 export default {
     props: ['detail', 'isPlan', 'isHome'],
-
     data() {
         return {
             some: 'detail'

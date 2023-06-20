@@ -13,15 +13,15 @@
 </template>
 
 <script>
-import compDetail from '../About/compDetail..vue';
-import compCollection from './compCollection.vue';
-import compReason from './compReason.vue';
-import compInstruction from './compInstruction.vue';
-import compButtonMain from '@/Utils/buttons/compButtonMain.vue';
+import CompDetail from '../About/CompDetail..vue';
+import CompCollection from './CompCollection.vue';
+import CompReason from './CompReason.vue';
+import CompInstruction from './CompInstruction.vue';
+import CompButtonMain from '@/Utils/buttons/CompButtonMain.vue';
 import { mapGetters } from 'vuex'
 
 export default {
-    components: { compCollection, compReason, compInstruction, compDetail, compButtonMain },
+    components: { CompCollection, CompReason, CompInstruction, CompDetail, CompButtonMain },
     data() {
         return {
             btnTxt:'create your plane',

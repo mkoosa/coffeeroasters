@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import compAccordion from './compAccordion.vue';
+import CompAccordion from './CompAccordion.vue';
 export default {
-    components: { compAccordion },
+    components: { CompAccordion },
     computed: {
         preferences() {
             return this.$store.getters['plan/getPreferences']

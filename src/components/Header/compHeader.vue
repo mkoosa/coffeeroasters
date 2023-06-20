@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import compNav from './compNav.vue';
-import compLogo from '@/Utils/compLogo.vue';
+import CompNav from './CompNav.vue';
+import CompLogo from '@/Utils/CompLogo.vue';
 export default {
-    components: { compNav, compLogo },
+    components: { CompNav, CompLogo },
     data() {
         return {
             header:true

@@ -6,9 +6,9 @@
 </template>
 
 <script>
-import compDetail from './compDetail..vue';
+import CompDetail from './CompDetail..vue';
 export default {
-    components: { compDetail },
+    components: { CompDetail },
     computed: {
         details() {
             return this.$store.getters['about/getDetails']        

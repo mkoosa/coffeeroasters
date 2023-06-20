@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import compNav from '../Header/compNav.vue';
+import CompNav from '../Header/CompNav.vue';
 export default {
-    components: { compNav },
+    components: { CompNav },
     computed: {
         isNavActive() {
             return this.$store.getters['side/getSideMenu']

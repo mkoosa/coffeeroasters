@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import compHeadquarters from './compHeadquarters.vue';
-import compDetails from './compDetails.vue';
+import CompHeadquarters from './CompHeadquarters.vue';
+import CompDetails from './CompDetails.vue';
 
 export default {
-    components: { compHeadquarters, compDetails },
+    components: { CompHeadquarters, CompDetails },
 }
 
 </script>
