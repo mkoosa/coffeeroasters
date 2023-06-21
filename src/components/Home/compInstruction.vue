@@ -1,20 +1,22 @@
 <template>
     <section class="instruction">
         <slot></slot>
-        <comp-steps class="active"></comp-steps>
-        <ul class="instruction__list" :style="{ color: palette.color, backgroundColor: palette.backgroundColor }">
-            <li :instructions="instructions" class="instruction__item" v-for="instruction in instructions"
-                :key="instruction.index">
-                <p class="item__index" v-text="instruction.index"></p>
-                <h3 class="item__header" v-text="instruction.name"></h3>
-                <p class="item__paragraph" v-text="instruction.description"></p>
-            </li>
-        </ul>
+        <slot name="home"></slot>
+        <div class="instruction__content" :style="{ color: palette.color, backgroundColor: palette.backgroundColor }">
+                <slot name="plan"></slot>
+            <ul class="instruction__list">
+                <li :instructions="instructions" class="instruction__item" v-for="instruction in instructions"
+                    :key="instruction.index">
+                    <p class="item__index" v-text="instruction.index"></p>
+                    <h3 class="item__header" v-text="instruction.name"></h3>
+                    <p class="item__paragraph" v-text="instruction.description"></p>
+                </li>
+            </ul>
+        </div>
     </section>
 </template>
 
 <script>
-import CompSteps from '@/Utils/CompSteps.vue';
 
 export default {
     props: {
@@ -22,13 +24,8 @@ export default {
         palette: Object
     },
 
-        // ['instructions', 'palette'],
-    
-    
-    components: { CompSteps },
     data() {
         return {
-            textHeader: 'How it works',
             btnTxt: 'Create your plane',
         }
     },
@@ -65,7 +62,6 @@ export default {
     margin: 2rem 0;
     font-size: 2.7rem;
     font-weight: 800;
-    /* color: var(--dark-grey-blue); */
     opacity: .9;
 }
 
@@ -86,13 +82,14 @@ export default {
 }
 
 /* section plan  */
-.plan .instruction__list {
+.plan .instruction__content {
     max-width: 145rem;
     margin: 10rem 0 0 0;
     padding: 6rem 3rem;
     position: relative;
     width: 100vw;
     left: -2rem;
+    border-radius: 1rem;
 }
 
 
@@ -104,7 +101,6 @@ export default {
     }
 
     .instruction {
-
         text-align: left;
     }
 
@@ -125,7 +121,7 @@ export default {
         margin-top: 0rem;
     }
 
-    .plan .instruction__list {
+    .plan .instruction__content {
         left: -3.5rem;
     }
 }

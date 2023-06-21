@@ -7,6 +7,9 @@
         <comp-reason />
         <comp-instruction :instructions="instructions" :palette="light">
             <h2 v-text="textHeader" class="instruction__header"></h2>
+            <template v-slot:home>
+            <comp-steps />
+            </template>
         </comp-instruction>
         <comp-button-main :btnTxt="btnTxt" />
     </section>
@@ -18,10 +21,11 @@ import CompCollection from './CompCollection.vue';
 import CompReason from './CompReason.vue';
 import CompInstruction from './CompInstruction.vue';
 import CompButtonMain from '@/Utils/buttons/CompButtonMain.vue';
+import CompSteps from '@/Utils/CompSteps.vue';
 import { mapGetters } from 'vuex'
 
 export default {
-    components: { CompCollection, CompReason, CompInstruction, CompDetail, CompButtonMain },
+    components: { CompCollection, CompReason, CompInstruction, CompDetail, CompButtonMain, CompSteps },
     data() {
         return {
             btnTxt:'create your plane',

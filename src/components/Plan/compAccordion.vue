@@ -34,7 +34,9 @@ export default {
 
     methods: {
         getSelectedElement(option, questionIndex, answer) {
-            this.$store.dispatch('plan/getPrice', answer.price)
+            if (questionIndex === 4) {
+                this.$store.dispatch('plan/getPrice', answer.price)
+            };
             let refElements = this.$refs.answer;
             let selectedElement = refElements.filter(refElement => refElement.children[0].innerText === option);
             this.changeBackGroundColor(selectedElement[0], questionIndex);
@@ -42,7 +44,12 @@ export default {
 
         changeBackGroundColor(element, questionIndex) {
             if (this.avoidDoubleElement(element)) {
+                console.log('ok')
                 this.$store.dispatch('plan/resetPreference', questionIndex);
+                if (questionIndex === 4) {
+                this.$store.dispatch('plan/getPrice', '')
+            };
+                console.log(questionIndex);
                 this.removeClass('checked', element);
                 return
             } else {
@@ -79,6 +86,7 @@ export default {
         },
 
         addUserPreferences(index, value) {
+
             this.$store.dispatch('plan/updateUserPreferences', { index, value })
         }
     },
@@ -120,7 +128,6 @@ export default {
     background-color: var(--dark-cyan);
     color: var(--white);
     opacity: 1;
-
 }
 
 .answer {
@@ -141,18 +148,37 @@ export default {
     font-weight: 800;
     opacity: .8;
     position: relative;
-
 }
 
 .checked .answer__header {
     color: var(--white);
     opacity: 1;
-
 }
 
 .answer__text {
     font-size: 1.6rem;
     opacity: .8;
     position: 10;
+}
+
+@media only screen and (min-width:768px) {
+    .accordion-list .accordion-item>.accordion-item__content {
+        display: flex !important;
+    }
+
+    .question__header{
+        flex-basis: 100%;
+        font-size: 3.2rem;
+        opacity: .7;
+    }
+    .answer:nth-child(2) {
+        margin: 0 1rem;
+    }
+
+
+    .answer {
+        height: 25rem;
+    }
+
 }
 </style>
