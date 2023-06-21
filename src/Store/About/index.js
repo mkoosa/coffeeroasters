@@ -1,6 +1,6 @@
 import { completeValueFromFirebase } from "@/Tools/loader.js";
 
-const asideModule = {
+const aboutModule = {
   namespaced: true,
   state() {
     return {
@@ -34,8 +34,9 @@ const asideModule = {
         console.log(error);
       }
     },
-
+    
     async getDetails({ commit }) {
+      
       try {
         completeValueFromFirebase(commit, "detailsAbout", "setDetails");
       } catch (error) {
@@ -45,4 +46,4 @@ const asideModule = {
   },
 };
 
-export default asideModule;
+export default aboutModule;

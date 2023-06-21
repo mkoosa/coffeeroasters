@@ -20,7 +20,13 @@
             </p>
             <p :class="{ 'summary__checkoutTxt': checkOut }" v-if="checkOut" v-text="checkOutTxt">
             </p>
-            <comp-button-main v-if="checkOut" :btnTxt="btnTxt + ' ' + price.toFixed(2) + '$'" :resetKeepAlive="resetKeepAlive"  />
+                <div class="checkout-btn-wrapper--narrow">    
+                    <comp-button-main v-if="checkOut" :btnTxt="checkoutPriceNarrowBtn()" :resetKeepAlive="resetKeepAlive" />
+                </div>
+                <div class="checkout-btn-wrapper--wide">
+                    <p class="checkout-price">{{ checkoutPriceWideBtn()}}</p>
+                    <comp-button-main v-if="checkOut" :btnTxt="btnTxt" :resetKeepAlive="resetKeepAlive" />
+                </div>
         </div>
     </div>
 </template>
@@ -33,9 +39,8 @@ export default {
     props: {
         summary: Boolean
     },
-    
+
     components: { CompButtonMain },
-    emits:['some'],
 
     data() {
         return {
@@ -56,10 +61,24 @@ export default {
         back() {
             this.$store.dispatch('plan/changeCheckOutStatus', false);
         },
+
         resetKeepAlive() {
             this.$store.dispatch('home/getKeepalive', false);
             this.$store.dispatch('plan/resetUserPreferences');
-        }
+        },
+
+        checkoutPriceNarrowBtn() {
+            const price = this.price;
+            if(!price) return
+
+            return `${this.btnTxt} - $${price.toFixed(2)} / mo`
+        }, 
+
+        checkoutPriceWideBtn() {
+            const price = this.price;
+            if(!price) return
+            return `$${price.toFixed(2)} / mo`
+        },
     },
 
     computed: {
@@ -67,7 +86,8 @@ export default {
             userPreferences: 'plan/getUserPreferences',
             checkOut: 'plan/getCheckOutStatus',
             checkOutTxt: 'plan/getCheckOutTxt',
-            price:'plan/getPrice'
+            price: 'plan/getPrice'
+           
         })
     },
 
@@ -90,7 +110,6 @@ export default {
     right: 1rem;
     font-size: 2.5rem;
     cursor: pointer;
-
 }
 
 .summary {
@@ -125,10 +144,7 @@ export default {
     font-size: 2.6rem;
     font-weight: 900;
     letter-spacing: .05rem;
-
 }
-
-
 
 .summary__header--summary {
     margin-bottom: 1.5rem;
@@ -137,7 +153,6 @@ export default {
     font-size: 1.4rem;
     font-weight: 400;
     text-transform: uppercase;
-
 }
 
 .summary__content-wrapper {
@@ -159,7 +174,6 @@ export default {
     margin-top: 3rem;
     opacity: .8;
     font-weight: 900;
-
 }
 
 .summary__content--summary span,
@@ -167,14 +181,10 @@ export default {
     text-transform: capitalize;
     font-size: 2.8rem;
     color: var(--dark-cyan);
-    /* opacity: 1 !important; */
-
 }
 
 .summary__content--checkout span {
     font-size: 2.6rem;
-
-
 }
 
 .summary__checkoutTxt {
@@ -185,4 +195,62 @@ export default {
     font-weight: 400;
     text-shadow: .2rem .2rem -2rem;
 }
+
+.checkout-btn-wrapper--narrow{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+.checkout-btn-wrapper--wide{
+    display: none;
+}
+
+
+.checkout-price{
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .summary--checkout {
+        width: 55rem;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .summary__header--checkout {
+        padding: 4rem;
+        font-size: 3.6rem;
+
+    }
+
+    .summary__content-wrapper {
+        padding: 4rem 5rem;
+    }
+
+    .summary__content--checkout {
+        line-height: 4rem;
+    }
+
+    .checkout-btn-wrapper--narrow{
+        display: none;
+    }
+
+    .checkout-btn-wrapper--wide{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;        
+}
+   
+    .checkout-price {
+        font-size: 3.5rem;
+        color: var(--dark-grey-blue);
+        font-family: 'Fraunces', serif;
+        font-weight: 800;
+        display: block;
+        flex-basis: 50%;
+    }
+}
 </style>
+

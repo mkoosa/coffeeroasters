@@ -6,6 +6,7 @@ import aboutModule from "./About/index";
 import planModule from "./Plan/index";
 import loaderModule from "./Loader/index";
 
+
 const store = createStore({
   modules: {
     home: homeModule,

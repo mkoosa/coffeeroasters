@@ -87,7 +87,7 @@ h4 {
   z-index: 3;
 }
 
-/* accordion default reset */
+/* accordion*/
 .accordion-list .accordion-item--open>.accordion-item__summary,
 .accordion-list .accordion-item {
   background-color: var(--white) !important;
@@ -98,5 +98,13 @@ h4 {
   .wrapper {
     padding: 3.5rem;
   }
+
+
+  .accordion-list .accordion-item > .accordion-item__content{
+        display: flex;
+        align-items: center;
+    }
+
+  
 }
 </style>

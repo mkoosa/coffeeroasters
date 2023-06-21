@@ -14,9 +14,9 @@
 <script>
 export default {
     props: {
-        btnTxt: String,
+        btnTxt: [String, Function],
         userPreferencesCompleted: Boolean,
-        resetKeepAlive: Boolean
+        resetKeepAlive: Function
     },
 
     inject: ['isPlan', 'isMain', 'isCheck'],
@@ -26,6 +26,7 @@ export default {
         proceed() {
             this.$store.dispatch('plan/changeCheckOutStatus', true)    
         },
+        
         done() {
             this.$store.dispatch('plan/changeCheckOutStatus', false);
             this.resetKeepAlive()
@@ -39,9 +40,9 @@ export default {
 .main-btn, 
 .checkout-btn
  {
-    padding: 1.2em 2em;
+    padding: 1.5rem;
     color: var(--white);
-    font-size: 1.6rem;
+    font-size: 2rem;
     background-color: var(--dark-cyan);
     font-family: 'Fraunces', serif;
     border-radius: .7rem;
@@ -55,6 +56,7 @@ export default {
 .checkout-btn{
     width: 100%;
     margin-bottom: 2rem;
+    max-width: 45rem;
 }
 .main-btn:hover {
     opacity: .9;
@@ -64,6 +66,14 @@ export default {
 .btn--grey {
     background-color: var(--light-grey);
     pointer-events: none;
+}
+
+
+@media only screen and (min-width: 768px){
+    .checkout-btn{
+        margin-bottom: 0;
+        width: 20rem;
+    }
 }
 </style>
 

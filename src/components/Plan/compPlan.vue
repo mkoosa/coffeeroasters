@@ -3,7 +3,13 @@
     <section class="plan">
     <div :class="{blur:checkOutStatus}"></div>
         <compDetail :detail="detail" :isPlan="isPlan" />
-        <comp-instruction :instructions="instructions" :palette="dark" />
+        <comp-instruction :instructions="instructions" :palette="dark">
+            <template v-slot:plan>
+            <comp-steps class="steps--plan" />
+            </template>
+        
+        
+        </comp-instruction>
         <comp-preferences />
         <compSummary :summary="summary" />
         <comp-button-main :userPreferencesCompleted="userPreferencesCompleted" :btnTxt="btnTxt"/>
@@ -16,10 +22,11 @@ import CompInstruction from '../Home/CompInstruction.vue';
 import CompPreferences from './CompPreferences.vue';
 import CompSummary from './CompSummary.vue';
 import CompButtonMain from '@/Utils/buttons/CompButtonMain.vue';
+import CompSteps from '@/Utils/CompSteps.vue';
 import {mapGetters} from 'vuex'
 
 export default {
-    components: { CompDetail, CompInstruction, CompPreferences, CompButtonMain, CompSummary },
+    components: { CompDetail, CompInstruction, CompPreferences, CompButtonMain, CompSummary, CompSteps },
     data() {
         return {
             btnTxt: 'Create my plane',
@@ -86,6 +93,6 @@ export default {
     right: 0;
     bottom: 0;
     background-color: var(--grey);
-    opacity: .9;
+    opacity: .3;
 }
 </style>

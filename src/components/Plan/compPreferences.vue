@@ -33,4 +33,6 @@ export default {
     margin: 6rem 0;
 }
 
+
+
 </style>

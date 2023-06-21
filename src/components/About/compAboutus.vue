@@ -1,7 +1,7 @@
 <template>
     <section class="about-us">
         <comp-details />
-        <compHeadquarters/>
+        <CompHeadquarters/>
     </section>
 </template>
 
