@@ -1,18 +1,21 @@
 
 <template>
     <section class="plan">
-    <div :class="{blur:checkOutStatus}"></div>
+        <div :class="{ blur: checkOutStatus }"></div>
         <compDetail :detail="detail" :isPlan="isPlan" />
         <comp-instruction :instructions="instructions" :palette="dark">
             <template v-slot:plan>
-            <comp-steps class="steps--plan" />
+                <comp-steps class="steps--plan" />
             </template>
-        
-        
         </comp-instruction>
-        <comp-preferences />
-        <compSummary :summary="summary" />
-        <comp-button-main :userPreferencesCompleted="userPreferencesCompleted" :btnTxt="btnTxt"/>
+        <div class="right-wrapper">
+            <comp-schedule />
+            <div class="choice-wrapper">
+                <comp-preferences />
+                <compSummary :summary="summary" />
+                <comp-button-main :userPreferencesCompleted="userPreferencesCompleted" :btnTxt="btnTxt" />
+            </div>
+        </div>
     </section>
 </template>
 <script>
@@ -23,10 +26,11 @@ import CompPreferences from './CompPreferences.vue';
 import CompSummary from './CompSummary.vue';
 import CompButtonMain from '@/Utils/buttons/CompButtonMain.vue';
 import CompSteps from '@/Utils/CompSteps.vue';
-import {mapGetters} from 'vuex'
+import CompSchedule from './CompSchedule.vue'
+import { mapGetters } from 'vuex'
 
 export default {
-    components: { CompDetail, CompInstruction, CompPreferences, CompButtonMain, CompSummary, CompSteps },
+    components: { CompDetail, CompInstruction, CompPreferences, CompButtonMain, CompSummary, CompSteps, CompSchedule },
     data() {
         return {
             btnTxt: 'Create my plane',
@@ -44,19 +48,19 @@ export default {
         return {
             isPlan: true,
             isMain: false,
-            isCheck:false
-        }        
+            isCheck: false
+        }
     },
 
     computed: {
         userPreferences() {
-            return this.$store.state.plan.userPreferences    
+            return this.$store.state.plan.userPreferences
         },
 
         ...mapGetters({
             instructions: 'plan/getInstruction',
             detail: 'plan/getDetails',
-            checkOutStatus:'plan/getCheckOutStatus'
+            checkOutStatus: 'plan/getCheckOutStatus'
         })
     },
 
@@ -64,12 +68,12 @@ export default {
         userPreferences: {
             handler: function () {
                 let value = this.userPreferences.includes("");
-                this.userPreferencesCompleted = value? false : true  
+                this.userPreferencesCompleted = value ? false : true
             },
-            deep:true
+            deep: true
         },
     },
-    
+
     mounted() {
         this.$store.dispatch('plan/getDetails');
         this.$store.dispatch('plan/getInstruction')
@@ -85,7 +89,8 @@ export default {
     border-radius: 1rem;
 
 }
-.blur{
+
+.blur {
     z-index: 100;
     position: absolute;
     top: 0;
@@ -94,5 +99,17 @@ export default {
     bottom: 0;
     background-color: var(--grey);
     opacity: .3;
+}
+
+
+@media only screen and (min-width:1200px) {
+    .right-wrapper {
+        display: flex;
+        justify-content: space-around;
+
+    }
+    .plan{
+        text-align: right;
+    }
 }
 </style>

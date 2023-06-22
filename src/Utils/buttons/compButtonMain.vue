@@ -2,7 +2,7 @@
     <router-link v-if="isMain" :to="{ name: 'create your plane', hash:'#summary' }">
         <button :class="['main-btn']" v-text="btnTxt" tabindex="0"></button>
     </router-link>
-    <div v-if="isPlan &&!isCheck">
+    <div  v-if="isPlan &&!isCheck">
         <button v-if="!userPreferencesCompleted" :class="['main-btn', { 'btn--grey': isPlan }]" v-text="btnTxt" tabindex="0"></button>
         <button v-if="userPreferencesCompleted && !isCheck" :class="['main-btn']" v-text="btnTxt" tabindex="0" @click="proceed"></button>
     </div>
@@ -50,7 +50,7 @@ export default {
     letter-spacing: .1rem;
     cursor: pointer;
     position: relative;
-    transition: opacity .1s;
+    transition: background-color .2s;
 }
 
 .checkout-btn{
@@ -59,8 +59,7 @@ export default {
     max-width: 45rem;
 }
 .main-btn:hover {
-    opacity: .9;
-    color: var(--light-grey);
+    background-color: var(--dark-cyan-hover);
 }
 
 .btn--grey {
@@ -75,5 +74,7 @@ export default {
         width: 20rem;
     }
 }
+
+
 </style>
 

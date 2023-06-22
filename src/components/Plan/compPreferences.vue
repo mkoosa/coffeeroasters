@@ -1,9 +1,8 @@
 <template>
     <section class="preferences">
-    <div class="preference" v-for="preference in preferences" :key="preference.question">
-        <comp-accordion :preference="preference"></comp-accordion>
-    </div>
-    
+        <div class="preference" v-for="preference in preferences" :key="preference.question">
+            <comp-accordion :preference="preference"></comp-accordion>
+        </div>
     </section>
 </template>
 
@@ -25,14 +24,24 @@ export default {
 </script>
 
 <style scoped>
-.preferences{
+.preferences {
     margin-top: 12rem;
 }
 
-.preference{
+.preference {
     margin: 6rem 0;
 }
 
 
+@media only screen and (min-width:1200px) {
+    .preferences {
+        flex-basis: 63%;
+        margin-top: 0;
+        min-width: 85rem;
+    }
 
+    .preference{
+        margin-top: 0;
+    }
+}
 </style>

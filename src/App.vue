@@ -100,11 +100,10 @@ h4 {
   }
 
 
-  .accordion-list .accordion-item > .accordion-item__content{
-        display: flex;
-        align-items: center;
-    }
+  .accordion-list .accordion-item>.accordion-item__content {
+    display: flex;
+    align-items: center;
+  }
 
-  
 }
 </style>

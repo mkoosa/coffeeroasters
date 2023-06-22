@@ -11,6 +11,7 @@ const planModule = {
       checkOutStatus: false,
       checkoutTxt: "",
       price: "",
+      schedule: "",
     };
   },
 
@@ -33,11 +34,17 @@ const planModule = {
     getCheckOutStatus(state) {
       return state.checkOutStatus;
     },
+
     getCheckOutTxt(state) {
       return state.checkoutTxt;
     },
+
     getPrice(state) {
       return state.price;
+    },
+
+    getSchedule(state) {
+      return state.schedule;
     },
   },
 
@@ -72,8 +79,13 @@ const planModule = {
     setCheckOutTxt(state, payload) {
       state.checkoutTxt = payload;
     },
+
     setPrice(state, payload) {
       state.price = payload;
+    },
+
+    setSchedule(state, payload) {
+      state.schedule = payload;
     },
   },
 
@@ -132,6 +144,14 @@ const planModule = {
 
     getPrice({ commit }, payload) {
       commit("setPrice", payload);
+    },
+
+    async getSchedule({ commit }) {
+      try {
+        completeValueFromFirebase(commit, "schedule", "setSchedule");
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };

@@ -32,7 +32,7 @@
     border: .2rem solid var(--dark-cyan);
     background-color: #fff;
     position: relative;
-    z-index: 100;
+    z-index: 90;
     overflow: hidden;
 }
 
@@ -44,7 +44,7 @@
     .plan .step {
         background-color: transparent;
         position: relative;
-        z-index: 1000;
+        /* z-index: 1000; */
     }
 
     .plan .step:nth-child(3)::after,

@@ -34,6 +34,7 @@ export default {
 
     methods: {
         getSelectedElement(option, questionIndex, answer) {
+            console.log(questionIndex);
             if (questionIndex === 4) {
                 this.$store.dispatch('plan/getPrice', answer.price)
             };
@@ -47,8 +48,8 @@ export default {
                 console.log('ok')
                 this.$store.dispatch('plan/resetPreference', questionIndex);
                 if (questionIndex === 4) {
-                this.$store.dispatch('plan/getPrice', '')
-            };
+                    this.$store.dispatch('plan/getPrice', '')
+                };
                 console.log(questionIndex);
                 this.removeClass('checked', element);
                 return
@@ -86,7 +87,6 @@ export default {
         },
 
         addUserPreferences(index, value) {
-
             this.$store.dispatch('plan/updateUserPreferences', { index, value })
         }
     },
@@ -111,7 +111,6 @@ export default {
 .question__arrow {
     color: var(--dark-cyan);
     font-size: 2rem;
-
 }
 
 .question__header {
@@ -123,7 +122,6 @@ export default {
     opacity: .8;
 }
 
-
 .answer.checked {
     background-color: var(--dark-cyan);
     color: var(--white);
@@ -131,15 +129,15 @@ export default {
 }
 
 .answer {
+    max-width: 55rem;
     text-align: left;
     cursor: pointer;
-    margin: 2rem 0;
+    margin: 2rem auto;
     padding: 2.5rem;
     border-radius: 1rem;
     background-color: var(--light-cream);
     position: 100;
 }
-
 
 .answer__header {
     margin-bottom: 1rem;
@@ -166,19 +164,51 @@ export default {
         display: flex !important;
     }
 
-    .question__header{
+    .question__header {
         flex-basis: 100%;
         font-size: 3.2rem;
         opacity: .7;
     }
+
+    .question__arrow {
+        font-size: 3rem;
+    }
+
     .answer:nth-child(2) {
         margin: 0 1rem;
     }
 
-
     .answer {
+        width: 30%;
         height: 25rem;
     }
 
+    .answer:first-child {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (min-width:1200px) {
+    .question__header {
+        font-size: 3.5rem;
+    }
+
+    .question__arrow {
+        font-size: 3.6rem;
+    }
+
+    .answer {
+        margin: 4rem 2rem;
+        width: 24rem;
+        transition: background-color .2s;
+    }
+
+    .answer:hover {
+        background-color: var(--pale-orange);
+    }
+
+    .answer.checked:hover {
+        background-color: var(--dark-cyan);
+    }
 }
 </style>

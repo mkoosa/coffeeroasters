@@ -7,7 +7,7 @@
             :class="['summary__header', { 'summary__header--summary': summary && !checkOut, 'summary__header--checkout': checkOut }]">
             {{
                 headerTxt }}</h2>
-        <div :class="{ 'summary__content-wrapper': checkOut }">
+        <div :class="['some', { 'summary__content-wrapper': checkOut }]">
             <p
                 :class="['summary__content', { 'summary__content--summary': summary && !checkOut, 'summary__content--checkout': checkOut }]">
                 “I drink my coffee as a <span v-if="userPreferences[0]">{{ userPreferences[0] }} </span><span
@@ -20,13 +20,13 @@
             </p>
             <p :class="{ 'summary__checkoutTxt': checkOut }" v-if="checkOut" v-text="checkOutTxt">
             </p>
-                <div class="checkout-btn-wrapper--narrow">    
-                    <comp-button-main v-if="checkOut" :btnTxt="checkoutPriceNarrowBtn()" :resetKeepAlive="resetKeepAlive" />
-                </div>
-                <div class="checkout-btn-wrapper--wide">
-                    <p class="checkout-price">{{ checkoutPriceWideBtn()}}</p>
-                    <comp-button-main v-if="checkOut" :btnTxt="btnTxt" :resetKeepAlive="resetKeepAlive" />
-                </div>
+            <div class="checkout-btn-wrapper--narrow">
+                <comp-button-main v-if="checkOut" :btnTxt="checkoutPriceNarrowBtn()" :resetKeepAlive="resetKeepAlive" />
+            </div>
+            <div class="checkout-btn-wrapper--wide">
+                <p class="checkout-price">{{ checkoutPriceWideBtn() }}</p>
+                <comp-button-main v-if="checkOut" :btnTxt="btnTxt" :resetKeepAlive="resetKeepAlive" />
+            </div>
         </div>
     </div>
 </template>
@@ -69,14 +69,13 @@ export default {
 
         checkoutPriceNarrowBtn() {
             const price = this.price;
-            if(!price) return
-
+            if (!price) return;
             return `${this.btnTxt} - $${price.toFixed(2)} / mo`
-        }, 
+        },
 
         checkoutPriceWideBtn() {
             const price = this.price;
-            if(!price) return
+            if (!price) return;
             return `$${price.toFixed(2)} / mo`
         },
     },
@@ -87,7 +86,6 @@ export default {
             checkOut: 'plan/getCheckOutStatus',
             checkOutTxt: 'plan/getCheckOutTxt',
             price: 'plan/getPrice'
-           
         })
     },
 
@@ -116,6 +114,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: 9rem 0 7rem 0;
     background-color: var(--dark-grey-blue);
     color: var(--white);
@@ -138,6 +137,7 @@ export default {
 }
 
 .summary__header--checkout {
+    width: 100%;
     padding: 2.5rem 2rem;
     background-color: var(--dark-grey-blue);
     text-transform: capitalize;
@@ -157,6 +157,7 @@ export default {
 
 .summary__content-wrapper {
     padding: 0 2rem;
+
 }
 
 .summary__content--summary,
@@ -165,7 +166,6 @@ export default {
     font-weight: 800;
     font-family: 'Fraunces', serif;
     line-height: 4.7rem;
-
 }
 
 .summary__content--checkout {
@@ -196,18 +196,17 @@ export default {
     text-shadow: .2rem .2rem -2rem;
 }
 
-.checkout-btn-wrapper--narrow{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-    }
-.checkout-btn-wrapper--wide{
+.checkout-btn-wrapper--narrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.checkout-btn-wrapper--wide {
     display: none;
 }
 
-
-.checkout-price{
+.checkout-price {
     display: none;
 }
 
@@ -219,37 +218,61 @@ export default {
         transform: translate(-50%, -50%);
     }
 
+    .summary--summary {
+        height: 28rem;
+    }
+    
     .summary__header--checkout {
         padding: 4rem;
-        font-size: 3.6rem;
-
+        font-size: 3.6rem;        
     }
-
+    
+    .summary__content {
+        padding: 2rem 6rem;
+        height: 19rem;
+    }
+    
     .summary__content-wrapper {
         padding: 4rem 5rem;
     }
-
+    
     .summary__content--checkout {
+        height: 25rem;
         line-height: 4rem;
     }
 
-    .checkout-btn-wrapper--narrow{
+    .checkout-btn-wrapper--narrow {
         display: none;
     }
 
-    .checkout-btn-wrapper--wide{
+    .checkout-btn-wrapper--wide {
         display: flex;
         align-items: center;
-        justify-content: space-around;        
-}
-   
+        justify-content: space-around;
+    }
+
     .checkout-price {
+        display: none;
+    }
+
+    .summary--checkout .checkout-price {
         font-size: 3.5rem;
         color: var(--dark-grey-blue);
         font-family: 'Fraunces', serif;
         font-weight: 800;
         display: block;
         flex-basis: 50%;
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .summary--checkout {
+        /* width: 65rem; */
+    }
+
+    .summary__content{
+        max-width: 101rem;
     }
 }
 </style>
