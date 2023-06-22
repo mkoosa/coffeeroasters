@@ -45,4 +45,10 @@ export default {
     color: var(--grey);
     cursor: pointer;
 }
+
+@media only screen and (min-width: 768px){
+    .side-menu{
+        display: none;
+    }
+}
 </style>
