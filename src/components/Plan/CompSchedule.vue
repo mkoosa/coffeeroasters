@@ -1,23 +1,57 @@
 <template>
     <div class="schedule">
         <ul class="schedule__list">
-            <li class="schedule__element" v-for="el in schedule" :key="el.index"><span class="index-element">{{ el.index
+            <li class="schedule__element" v-for="el in schedule" :key="el.index" ref="items"><span class="index-element">{{
+                el.index
             }}</span> {{ el.text }}</li>
         </ul>
     </div>
 </template>
 
 <script>
+
+
 export default {
     computed: {
         schedule() {
-            return this.$store.getters['plan/getSchedule']
+            return this.$store.getters['plan/getSchedule'];
+        },
+        userPreferences() {
+            return this.$store.state.plan.userPreferences
+        },
+    },
+
+    watch: {
+        userPreferences: {
+            handler() {
+                const indexes = this.userPreferences.map((item, index) => item !== ""
+                    ? index
+                    : null).filter((item) => item !== null)
+                this.setClass(indexes)
+
+            },
+            deep: true,
+        },
+    },
+
+
+    methods: {
+        setClass(indexes) {
+            let elements = this.$refs.items;
+            elements.forEach(el => el.classList.remove('active'))
+            for (let i = 0; i < indexes.length; i++) {
+                elements.forEach((element, index) => {
+                    if (indexes[i] === index) {
+                        element.classList.add('active')
+                    }
+                })
+            }
         }
     },
 
     mounted() {
         this.$store.dispatch('plan/getSchedule')
-    }
+    },
 }
 </script>
 
@@ -30,7 +64,7 @@ export default {
 @media only screen and (min-width: 1200px) {
     .schedule {
         display: block;
-        margin-right: 10rem;    
+        margin-right: 10rem;
     }
 
     .schedule__list {
@@ -63,5 +97,9 @@ export default {
         margin-right: 2rem;
     }
 
+    .active span {
+        color: var(--dark-cyan);
+        opacity: .8;
+    }
 }
 </style>

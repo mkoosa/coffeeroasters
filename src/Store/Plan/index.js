@@ -68,6 +68,7 @@ const planModule = {
     resetUserPreference(state, payload) {
       state.userPreferences[payload] = "";
     },
+
     resetUserPreferences(state) {
       state.userPreferences = ["", "", "", "", ""];
     },
@@ -118,6 +119,7 @@ const planModule = {
       commit("setUserPreferences", payload);
     },
 
+  
     resetUserPreferences({ commit }) {
       commit("resetUserPreferences");
     },
