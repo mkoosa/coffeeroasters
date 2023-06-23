@@ -39,7 +39,6 @@ export default {
     props: {
         summary: Boolean
     },
-
     components: { CompButtonMain },
 
     data() {
@@ -111,9 +110,18 @@ export default {
 }
 
 .summary {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin: 9rem 0 7rem 0;
     background-color: var(--dark-grey-blue);
@@ -127,6 +135,9 @@ export default {
 }
 
 .summary--checkout {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 55rem;
     position: fixed;
     top: -7rem;
     left: 2rem;
@@ -197,11 +208,17 @@ export default {
 }
 
 .checkout-btn-wrapper--narrow {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
-
 }
+
 .checkout-btn-wrapper--wide {
     display: none;
 }
@@ -221,33 +238,34 @@ export default {
     .summary--summary {
         height: 28rem;
     }
-    
+
     .summary__header--checkout {
         padding: 4rem;
-        font-size: 3.6rem;        
-    }
-    
-    .summary__content {
-        padding: 2rem 6rem;
-        height: 19rem;
+        font-size: 3.6rem;
     }
     
     .summary__content-wrapper {
-        padding: 4rem 5rem;
+        padding: 2rem;
     }
     
     .summary__content--checkout {
-        height: 25rem;
         line-height: 4rem;
+        text-align: center;
     }
 
+  
     .checkout-btn-wrapper--narrow {
         display: none;
     }
 
     .checkout-btn-wrapper--wide {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -ms-flex-pack: distribute;
         justify-content: space-around;
     }
 
@@ -267,11 +285,9 @@ export default {
 }
 
 @media only screen and (min-width: 1200px) {
-    .summary--checkout {
-        /* width: 65rem; */
-    }
+  
 
-    .summary__content{
+    .summary__content {
         max-width: 101rem;
     }
 }

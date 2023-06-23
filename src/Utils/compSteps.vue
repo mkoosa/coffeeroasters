@@ -9,6 +9,8 @@
 <style scoped>
 .steps {
     width: 70%;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     position: relative;
     display: none;
@@ -19,10 +21,11 @@
     background-color: var(--pale-orange);
     position: absolute;
     top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     width: 100%;
     height: .2rem;
-
 }
 
 .step {
@@ -38,6 +41,8 @@
 
 @media only screen and (min-width: 768px) {
     .steps {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }
 
@@ -48,8 +53,7 @@
     }
 
     .plan .step:nth-child(3)::after,
-    .plan .step:nth-child(1)::after
-    {
+    .plan .step:nth-child(1)::after {
         content: '';
         position: absolute;
         width: 3rem;
@@ -57,15 +61,18 @@
         border-radius: 50%;
         background-color: var(--dark-grey-blue);
         background-color: #424A54;
+        -webkit-transform: translate(50%);
+        -ms-transform: translate(50%);
         transform: translate(50%);
-        
+
     }
-    
-    .plan .step:nth-child(1)::after{
+
+    .plan .step:nth-child(1)::after {
+        -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
         transform: translate(-50%);
-        
     }
-    
+
 
 
 }

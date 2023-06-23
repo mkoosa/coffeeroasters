@@ -23,6 +23,7 @@ export default {
             header: 'Our headquarters'
         }
     },
+
     computed: {
         headquarters() {
             return this.$store.getters['about/getHeadquarters']
@@ -33,7 +34,6 @@ export default {
         this.$store.dispatch('about/getHeadquarters')
     }
 }
-
 </script>
 
 <style scoped>
@@ -90,7 +90,6 @@ export default {
     .headquarters__element:nth-child(2) {
         margin-right: 10rem;
     }
-
 }
 
 @media only screen and (min-width:1200px) {

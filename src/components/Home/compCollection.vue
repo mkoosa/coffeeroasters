@@ -25,7 +25,6 @@ export default {
         this.$store.dispatch('home/getCoffeeCollection')
     }
 }
-
 </script>
 
 <style scoped>

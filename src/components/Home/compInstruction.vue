@@ -84,7 +84,7 @@ export default {
 /* section plan  */
 .plan .instruction__content {
     max-width: 145rem;
-    margin: 10rem 0 0 0;
+    margin: 6rem 0 0 0;
     padding: 6rem 3rem;
     position: relative;
     width: 100vw;
@@ -123,6 +123,7 @@ export default {
 
     .plan .instruction__content {
         left: -3.5rem;
+        margin: 9rem 0 0 0;
     }
 }
 
@@ -130,7 +131,7 @@ export default {
 @media only screen and (min-width: 1200px) {
 
     .instruction {
-        margin: 15rem 0 12rem 0;
+        margin: 10rem 0 12rem 0;
     }
 }
 </style>

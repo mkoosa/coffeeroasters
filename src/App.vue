@@ -56,6 +56,8 @@ img {
 }
 
 .d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -101,7 +103,11 @@ h4 {
 
 
   .accordion-list .accordion-item>.accordion-item__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
 

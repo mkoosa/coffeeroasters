@@ -18,6 +18,5 @@ export default {
 <style scoped>
 .about-us {
     margin-top: 6rem;
-
 }
 </style>

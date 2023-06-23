@@ -74,7 +74,6 @@ export default {
     color: #f3f3f3;
 }
 
-
 .nav-list--side {
     margin-top: 3rem;
     height: 23rem;
@@ -121,7 +120,6 @@ export default {
 
 .nav-list__item--side a {
     color: var(--grey);
-
 }
 
 .nav-list__item--side:hover {
@@ -137,7 +135,6 @@ export default {
     color: var(--grey);
     opacity: 1;
 }
-
 
 @media only screen and (min-width: 600px) {
     .hamburger {
@@ -183,10 +180,8 @@ export default {
         flex-direction: row;
     }
 
-
     .nav-list__item{
         margin: 0rem;
-       
     }
 }
 

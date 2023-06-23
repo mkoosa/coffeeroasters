@@ -199,7 +199,7 @@ export default {
 @media only screen and (min-width: 1200px) {
 
     .detail {
-        margin-bottom: 18rem;
+        margin-bottom: 11rem;
     }
 
 

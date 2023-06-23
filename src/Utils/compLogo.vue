@@ -10,11 +10,17 @@
 
 <style scoped>
 .logo__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 .logo {
+    -ms-flex-item-align: end;
+    -ms-grid-row-align: end;
     align-self: end;
     position: relative;
 }

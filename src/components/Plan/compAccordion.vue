@@ -34,7 +34,6 @@ export default {
 
     methods: {
         getSelectedElement(option, questionIndex, answer) {
-            console.log(questionIndex);
             if (questionIndex === 4) {
                 this.$store.dispatch('plan/getPrice', answer.price)
             };
@@ -45,18 +44,15 @@ export default {
 
         changeBackGroundColor(element, questionIndex) {
             if (this.avoidDoubleElement(element)) {
-                console.log('ok')
                 this.$store.dispatch('plan/resetPreference', questionIndex);
                 if (questionIndex === 4) {
                     this.$store.dispatch('plan/getPrice', '')
                 };
-                console.log(questionIndex);
                 this.removeClass('checked', element);
                 return
             } else {
                 this.selectedElements.forEach(element => this.removeClass('checked', element))
                 this.addClass('checked', element)
-
             }
             this.selectedElements = [];
             this.selectedElements.push(element);
@@ -87,8 +83,11 @@ export default {
         },
 
         addUserPreferences(index, value) {
-            this.$store.dispatch('plan/updateUserPreferences', { index, value })
-        }
+            this.$store.dispatch('plan/updateUserPreferences', { index, value });
+
+        },
+
+
     },
 }
 
@@ -100,11 +99,17 @@ export default {
 }
 
 .items {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
 .question {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -161,6 +166,8 @@ export default {
 
 @media only screen and (min-width:768px) {
     .accordion-list .accordion-item>.accordion-item__content {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
         display: flex !important;
     }
 

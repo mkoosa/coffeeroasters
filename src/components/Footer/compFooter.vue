@@ -108,7 +108,6 @@ export default {
         flex-direction: row;
         -ms-flex-pack: distribute;
         justify-content: space-around;
-
     }
 
     .footer__menu-list {
