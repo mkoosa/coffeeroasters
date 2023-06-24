@@ -1,24 +1,32 @@
-# coffe-roasters
+# Frontend Mentor - Coffeeroasters subscription site solution
 
-## Project setup
-```
-npm install
-```
+This is a solution to the [Coffeeroasters subscription site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/coffeeroasters-subscription-site-5Fc26HVY6). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### The challenge
+Users should be able to:
+- View the optimal layout for each page depending on their device's screen size
+- See hover states for all interactive elements throughout the site
+- Make selections to create a coffee subscription and see an order summary modal of their choices
+- Not loose saved choices after changing routes
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## My process
+- Mobile first
+### Built with
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- [Vue](https://vuejs.org/) - JS library
+- [css lodader](https://loading.io/css/) - JS library 
+- [vue 3 rich accordion](https://vuejsexamples.com/vue-3-rich-accordion-component-library//) - JS library
+- [fontawesome](https://fontawesome.com/) - for icons
+- [firebase](https://firebase.google.com//)
+- [clodinary](https://cloudinary.com/)
 
-### Lints and fixes files
-```
-npm run lint
-```
+### What I learned
+How to build SPA in Vue3 aplication with using different dependencies 
+## Author
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Website - [Marcin](https://www.your-site.com)
+- Frontend Mentor - layout designer
+- Twitter - [@yourusername](https://www.twitter.com/yourusername)
