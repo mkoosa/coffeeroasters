@@ -135,11 +135,12 @@ export default {
 }
 
 .summary--checkout {
+    
     margin-left: auto;
     margin-right: auto;
     max-width: 55rem;
     position: fixed;
-    top: -7rem;
+    top: -8rem;
     left: 2rem;
     right: 2rem;
     background-color: var(--white);

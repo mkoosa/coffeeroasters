@@ -18,7 +18,7 @@
 
 <script>
 /*eslint-disable*/
-import { library } from "@fortawesome/fontawesome-svg-core";
+// import { library } from "@fortawesome/fontawesome-svg-core";
 import { AccordionList, AccordionItem } from "vue3-rich-accordion";
 export default {
     components: { AccordionList, AccordionItem },

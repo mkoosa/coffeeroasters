@@ -96,6 +96,8 @@ h4 {
   border: none !important;
 }
 
+
+
 @media only screen and (min-width: 768px) {
   .wrapper {
     padding: 3.5rem;
