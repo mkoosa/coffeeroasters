@@ -229,6 +229,8 @@ export default {
 
 @media only screen and (min-width: 768px) {
     .summary--checkout {
+        margin-left: initial;
+        margin-right: initial;
         width: 55rem;
         top: 30%;
         left: 50%;
@@ -243,17 +245,17 @@ export default {
         padding: 4rem;
         font-size: 3.6rem;
     }
-    
+
     .summary__content-wrapper {
         padding: 2rem;
     }
-    
+
     .summary__content--checkout {
         line-height: 4rem;
         text-align: center;
     }
 
-  
+
     .checkout-btn-wrapper--narrow {
         display: none;
     }
@@ -285,7 +287,7 @@ export default {
 }
 
 @media only screen and (min-width: 1200px) {
-  
+
 
     .summary__content {
         max-width: 101rem;

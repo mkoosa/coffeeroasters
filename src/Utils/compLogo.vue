@@ -1,8 +1,10 @@
 <template>
     <div class="logo__wrapper">
         <div class="logo">
-            <img src="../assets/home/desktop/icon-coffee-bean.svg" alt="coffee bean" class="bean bean--first">
-            <img src="../assets/home/desktop/icon-coffee-bean.svg" alt="coffee bean" class="bean bean--second">
+            <img src="https://res.cloudinary.com/dwp8gkrp5/image/upload/v1687617516/icon-coffee-bean_l3ob3j.svg"
+                alt="coffee bean" class="bean bean--first">
+            <img src="https://res.cloudinary.com/dwp8gkrp5/image/upload/v1687617516/icon-coffee-bean_l3ob3j.svg"
+                alt="coffee bean" class="bean bean--second">
         </div>
         <h1 class="logo__heading" :class="$attrs.class">coffeeroasters</h1>
     </div>
