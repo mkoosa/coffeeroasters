@@ -135,16 +135,15 @@ export default {
 }
 
 .summary--checkout {
-    
+    max-height: 92vh;
     margin-left: auto;
     margin-right: auto;
     max-width: 55rem;
     position: fixed;
-    top: -8rem;
+    top: -7rem;
     left: 2rem;
     right: 2rem;
     background-color: var(--white);
-    border: .1rem solid var(--dark-cyan);
     z-index: 1000;
 }
 
@@ -227,6 +226,21 @@ export default {
 .checkout-price {
     display: none;
 }
+
+@media only screen and (max-height: 768px) and (orientation:landscape){
+    .summary--checkout {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 55rem;
+    max-height: initial;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--white);
+    z-index: 1000;
+}
+}
+
 
 @media only screen and (min-width: 768px) {
     .summary--checkout {
