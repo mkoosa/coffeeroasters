@@ -120,12 +120,28 @@ export default {
 }
 
 .question__header {
+    padding-left: 1rem;
     text-align: left;
     font-size: 2.5rem;
+    line-height: 3rem;
+    min-width: 90%;
     flex-basis: 80%;
     color: var(--grey);
     font-weight: 900;
     opacity: .8;
+    position: relative;
+}
+
+.question__header::before{
+position: absolute;
+width: 4rem;
+height: 100%;
+top: 0;
+left: -3rem;
+content: '';
+background-color: #fff;
+z-index: 1000;
+
 }
 
 .answer.checked {
