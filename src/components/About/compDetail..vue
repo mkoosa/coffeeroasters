@@ -3,7 +3,7 @@
         <picture>
             <source class="detail__img" media="(min-width: 768px) and (max-width: 1199px)" :srcset="detail.imgTablet">
             <source class="detail__img" media="(min-width: 1200px)" :srcset="detail.imgDesktop">
-            <img class="detail__img" :src="detail.imgMobile">
+            <img class="detail__img" :src="detail.imgMobile" :alt="detail.alt">
         </picture>
         <div class="detail__content">
             <h2 class="detail__header">{{ detail.name }}</h2>
@@ -43,7 +43,7 @@ export default {
 .detail {
     border-radius: 1rem;
     text-align: center;
-    overflow: hidden;
+
 
 }
 

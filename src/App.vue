@@ -97,6 +97,9 @@ h4 {
 }
 
 
+.accordion-item__summary-icon--default{
+  display: none;
+}
 
 @media only screen and (min-width: 768px) {
   .wrapper {

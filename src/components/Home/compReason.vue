@@ -11,7 +11,6 @@
                 <div class="item__content">
                     <h3 class="item__header" v-text="reason.name"></h3>
                     <p class="item__paragraph" v-text="reason.description"></p>
-
                 </div>
             </li>
         </ul>

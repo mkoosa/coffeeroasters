@@ -3,7 +3,7 @@
         <h2 class="collection__header">our collection</h2>
         <ul class="collection__list">
             <li class="collection__item" v-for="item in collection" :key="item.name">
-                <img class="item__img" :src="item.url" alt="">
+                <img class="item__img" :src="item.url" :alt="item.alt">
                 <div class="item__content">
                     <h2 class="item__name" v-text="item.name"></h2>
                     <p class="item__description" v-text="item.description"></p>

@@ -6,7 +6,7 @@
                     <h3 class="question__header" v-text="preference.question"></h3>
                 </div>
             </template>
-            <template #icon><i class="fas fa-solid fa-angle-down fa-lg question__arrow"></i></template>
+            <template #icon><i class="fa-solid fa-caret-down question__arrow"></i></template>
             <div class="answer" ref="answer" v-for="answer in preference.answers" :key="answer.name"
                 @click="getSelectedElement(answer.name, preference.index, answer)">
                 <h4 class="answer__header" v-text="answer.name"></h4>
@@ -18,7 +18,7 @@
 
 <script>
 /*eslint-disable*/
-// import { library } from "@fortawesome/fontawesome-svg-core";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import { AccordionList, AccordionItem } from "vue3-rich-accordion";
 export default {
     components: { AccordionList, AccordionItem },
@@ -115,6 +115,7 @@ export default {
 
 .question__arrow {
     color: var(--dark-cyan);
+    opacity: .7;
     font-size: 2rem;
 }
 
