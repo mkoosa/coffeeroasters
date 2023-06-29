@@ -1,7 +1,3 @@
-# Frontend Mentor - Coffeeroasters subscription site solution
-
-This is a solution to the [Coffeeroasters subscription site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/coffeeroasters-subscription-site-5Fc26HVY6). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
-
 ### The challenge
 Users should be able to:
 - View the optimal layout for each page depending on their device's screen size
@@ -27,6 +23,9 @@ Users should be able to:
 How to build SPA in Vue3 aplication with using different dependencies 
 ## Author
 
-- Website - [Marcin](https://www.your-site.com)
+- Website - [Marcin](https://caffee-roast.web.app)
 - Frontend Mentor - layout designer
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+
+## Acknowledgments
+This is a solution to the [Coffeeroasters subscription site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/coffeeroasters-subscription-site-5Fc26HVY6).
+I want to thank for frontendmentor stuff for giving opportunity of solving that challange and improve me skills.
