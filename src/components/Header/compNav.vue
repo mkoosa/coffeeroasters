@@ -1,8 +1,9 @@
 <template>
-    <ul class="nav-list" :class="['$attrs.class', { 'active': isSideMenuActive }]" @click="activateAlive">
+    <ul class="nav-list" :class="['$attrs.class', { 'active': isSideMenuActive }]" @click="activateAlive" role="navigation"
+        :aria-label="setAriaLabel()">
         <li tabindex="0" :class="['nav-list__item', { 'nav-list__item--footer': footer, 'nav-list__item--side': side }]"
             v-for="detail in details" :key="detail">
-            <router-link :to="{ name: detail, hash:'#summary'  }" @click="hideSideMenu">
+            <router-link :to="{ name: detail, hash: '#summary' }" @click="hideSideMenu">
                 {{ detail }}
             </router-link>
         </li>
@@ -15,7 +16,7 @@ export default {
         footer: Boolean,
         side: Boolean
     },
-    
+
     data() {
         return {
             details: ['home', 'about us', 'create your plane'],
@@ -28,6 +29,10 @@ export default {
 
         activateAlive() {
             this.$store.dispatch('home/getKeepalive', true);
+        },
+
+        setAriaLabel() {
+            return this.footer ? 'Footer' : 'Main';
         }
     },
 
@@ -180,7 +185,7 @@ export default {
         flex-direction: row;
     }
 
-    .nav-list__item{
+    .nav-list__item {
         margin: 0rem;
     }
 }
