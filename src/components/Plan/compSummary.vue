@@ -100,13 +100,17 @@ export default {
 </script>
 
 <style scoped>
-.back {
+.summary--checkout .back {
     color: var(--dark-cyan);
     position: absolute;
     top: 1rem;
     right: 1rem;
     font-size: 2.5rem;
     cursor: pointer;
+}
+
+.summary--summary .back {
+    display: none;
 }
 
 .summary {
@@ -227,18 +231,19 @@ export default {
     display: none;
 }
 
-@media only screen and (max-height: 768px) and (orientation:landscape){
+
+@media only screen and (max-height: 768px) and (orientation:landscape) {
     .summary--checkout {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 55rem;
-    max-height: initial;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--white);
-    z-index: 1000;
-}
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 55rem;
+        max-height: initial;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--white);
+        z-index: 1000;
+    }
 }
 
 

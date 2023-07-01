@@ -30,7 +30,6 @@ export default {
 <style>
 .nav {
     cursor: pointer;
-
 }
 
 .active.hamburger {
