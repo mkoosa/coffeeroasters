@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CompDetail from './CompDetail..vue';
+import CompDetail from './compDetail.vue';
 export default {
     components: {CompDetail},
     computed: {

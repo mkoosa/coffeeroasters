@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import CompNav from '../Header/CompNav.vue';
+import CompNav from '../Header/compNav.vue';
 export default {
     components: {CompNav},
     computed: {

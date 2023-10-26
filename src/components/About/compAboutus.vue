@@ -1,19 +1,17 @@
 <template>
     <section class="about-us">
         <comp-details />
-        <CompHeadquarters/>
+        <CompHeadquarters />
     </section>
 </template>
 
-
 <script>
-import CompHeadquarters from './CompHeadquarters.vue';
-import CompDetails from './CompDetails.vue';
+import CompHeadquarters from './compHeadquarters.vue';
+import CompDetails from './compDetails.vue';
 
 export default {
-    components: { CompHeadquarters, CompDetails },
-}
-
+    components: {CompHeadquarters, CompDetails},
+};
 </script>
 
 <style scoped>

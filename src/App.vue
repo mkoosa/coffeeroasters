@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import CompHeader from './components/Header/CompHeader.vue';
-import CompSideMenu from './components/Menu/CompSidemenu.vue';
+import CompHeader from './components/Header/compHeader.vue';
+import CompSideMenu from './components/Menu/compSidemenu.vue';
 import {mapGetters} from 'vuex';
 
 export default {

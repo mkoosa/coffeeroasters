@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import CompLogo from '@/Utils/CompLogo.vue';
-import CompNav from '../Header/CompNav.vue';
+import CompLogo from '@/Utils/compLogo.vue';
+import CompNav from '../Header/compNav.vue';
 
 export default {
     components: {

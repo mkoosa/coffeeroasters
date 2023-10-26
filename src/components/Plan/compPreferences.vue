@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import CompAccordion from './CompAccordion.vue';
+import CompAccordion from './compAccordion.vue';
 export default {
     components: {CompAccordion},
     computed: {

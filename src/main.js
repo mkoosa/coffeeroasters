@@ -12,9 +12,9 @@ import {useAccordion} from 'vue3-rich-accordion';
 import 'vue3-rich-accordion/accordion-library-styles.css';
 
 // components
-import MainButton from './Utils/buttons/CompButtonMain.vue';
-import CompFooter from './components/Footer/CompFooter.vue';
-import CompLoader from './Utils/CompLoader.vue';
+import MainButton from './Utils/buttons/compButtonMain.vue';
+import CompFooter from './components/Footer/compFooter.vue';
+import CompLoader from './Utils/compLoader.vue';
 
 library.add(fas, far, fab);
 dom.watch();

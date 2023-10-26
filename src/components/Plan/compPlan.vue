@@ -21,12 +21,12 @@
     </section>
 </template>
 <script>
-import CompDetail from '../About/CompDetail..vue';
-import CompInstruction from '../Home/CompInstruction.vue';
-import CompPreferences from './CompPreferences.vue';
-import CompSummary from './CompSummary.vue';
-import CompButtonMain from '@/Utils/buttons/CompButtonMain.vue';
-import CompSteps from '@/Utils/CompSteps.vue';
+import CompDetail from '../About/compDetail.vue';
+import CompInstruction from '../Home/compInstruction.vue';
+import CompPreferences from './compPreferences.vue';
+import CompSummary from './compSummary.vue';
+import CompButtonMain from '@/Utils/buttons/compButtonMain.vue';
+import CompSteps from '@/Utils/compSteps.vue';
 import CompSchedule from './CompSchedule.vue';
 import {mapGetters} from 'vuex';
 

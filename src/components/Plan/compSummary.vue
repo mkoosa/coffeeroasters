@@ -78,7 +78,7 @@
 
 <script>
 import {mapGetters} from 'vuex';
-import CompButtonMain from '@/Utils/buttons/CompButtonMain.vue';
+import CompButtonMain from '@/Utils/buttons/compButtonMain.vue';
 
 export default {
     props: {
