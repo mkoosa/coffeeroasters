@@ -1,27 +1,25 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue';
 import App from './App.vue';
 
-
-import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { far } from '@fortawesome/free-regular-svg-icons';
+import {library, dom} from '@fortawesome/fontawesome-svg-core';
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
+import {fas} from '@fortawesome/free-solid-svg-icons';
+import {fab} from '@fortawesome/free-brands-svg-icons';
+import {far} from '@fortawesome/free-regular-svg-icons';
 import Store from './Store/index';
 import Router from './routes';
-import { useAccordion } from "vue3-rich-accordion";
-import "vue3-rich-accordion/accordion-library-styles.css";
-
+import {useAccordion} from 'vue3-rich-accordion';
+import 'vue3-rich-accordion/accordion-library-styles.css';
 
 // components
 import MainButton from './Utils/buttons/CompButtonMain.vue';
 import CompFooter from './components/Footer/CompFooter.vue';
-import CompLoader from './Utils/CompLoader.vue'
+import CompLoader from './Utils/CompLoader.vue';
 
-library.add(fas, far, fab)
+library.add(fas, far, fab);
 dom.watch();
 const app = createApp(App);
-app.component("font-awesome-icon", FontAwesomeIcon);
+app.component('font-awesome-icon', FontAwesomeIcon);
 app.component('btn-main', MainButton);
 app.component('comp-footer', CompFooter);
 app.component('comp-loader', CompLoader);
@@ -29,9 +27,3 @@ app.use(Store);
 app.use(Router);
 app.use(useAccordion);
 app.mount('#app');
-
-
-
-
-
-

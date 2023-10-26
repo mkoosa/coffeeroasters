@@ -1,9 +1,27 @@
 <template>
-    <ul class="nav-list" :class="['$attrs.class', { 'active': isSideMenuActive }]" @click="activateAlive" role="navigation"
-        :aria-label="setAriaLabel()">
-        <li tabindex="0" :class="['nav-list__item', { 'nav-list__item--footer': footer, 'nav-list__item--side': side }]"
-            v-for="detail in details" :key="detail">
-            <router-link :to="{ name: detail, hash: '#summary' }" @click="hideSideMenu">
+    <ul
+        class="nav-list"
+        :class="['$attrs.class', {active: isSideMenuActive}]"
+        @click="activateAlive"
+        role="navigation"
+        :aria-label="setAriaLabel()"
+    >
+        <li
+            tabindex="0"
+            :class="[
+                'nav-list__item',
+                {
+                    'nav-list__item--footer': footer,
+                    'nav-list__item--side': side,
+                },
+            ]"
+            v-for="detail in details"
+            :key="detail"
+        >
+            <router-link
+                :to="{name: detail, hash: '#summary'}"
+                @click="hideSideMenu"
+            >
                 {{ detail }}
             </router-link>
         </li>
@@ -14,17 +32,17 @@
 export default {
     props: {
         footer: Boolean,
-        side: Boolean
+        side: Boolean,
     },
 
     data() {
         return {
             details: ['home', 'about us', 'create your plane'],
-        }
+        };
     },
     methods: {
         hideSideMenu() {
-            this.$store.dispatch('side/hideSideMenu', false)
+            this.$store.dispatch('side/hideSideMenu', false);
         },
 
         activateAlive() {
@@ -33,16 +51,15 @@ export default {
 
         setAriaLabel() {
             return this.footer ? 'Footer' : 'Main';
-        }
+        },
     },
 
     computed: {
         isSideMenuActive() {
-            return this.$store.getters['side/getSideMenu']
-        }
+            return this.$store.getters['side/getSideMenu'];
+        },
     },
-}
-
+};
 </script>
 
 <style scoped>
@@ -110,7 +127,7 @@ export default {
 .active.nav-list--side a {
     display: block;
     opacity: 1;
-    transition: all 1s .3s;
+    transition: all 1s 0.3s;
 }
 
 .nav-list__item--side {
@@ -119,8 +136,8 @@ export default {
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
-    opacity: .8;
-    transition: opacity .1s;
+    opacity: 0.8;
+    transition: opacity 0.1s;
 }
 
 .nav-list__item--side a {
@@ -133,7 +150,7 @@ export default {
 
 .nav-list--header li a {
     color: var(--grey);
-    opacity: .9;
+    opacity: 0.9;
 }
 
 .nav-list--header li a:hover {
@@ -159,11 +176,11 @@ export default {
         text-transform: uppercase;
         font-size: 1.3rem;
         font-weight: 600;
-        opacity: .7;
-        text-shadow: .2rem .2rem -2rem;
+        opacity: 0.7;
+        text-shadow: 0.2rem 0.2rem -2rem;
         cursor: pointer;
         color: var(--dark-grey-blue);
-        transition: opacity .1s;
+        transition: opacity 0.1s;
     }
 
     .nav-list__item:nth-child(2) {
@@ -171,7 +188,7 @@ export default {
     }
 
     .nav-list__item:hover {
-        transition: opacity .1s;
+        transition: opacity 0.1s;
         opacity: 1;
         font-weight: 800;
     }

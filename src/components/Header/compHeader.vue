@@ -1,8 +1,15 @@
 <template>
     <div class="header">
         <comp-logo />
-        <div class="nav" @click="$store.dispatch('side/hideSideMenu', true)" v-if="!isHamburgerHidden">
-            <i :class="['fa-solid', 'fa-bars', 'hamburger', 'active']" tabindex="0"></i>
+        <div
+            class="nav"
+            @click="$store.dispatch('side/hideSideMenu', true)"
+            v-if="!isHamburgerHidden"
+        >
+            <i
+                :class="['fa-solid', 'fa-bars', 'hamburger', 'active']"
+                tabindex="0"
+            ></i>
         </div>
         <comp-nav class="nav-list--header" :header="header"></comp-nav>
     </div>
@@ -12,19 +19,19 @@
 import CompNav from './CompNav.vue';
 import CompLogo from '@/Utils/CompLogo.vue';
 export default {
-    components: { CompNav, CompLogo },
+    components: {CompNav, CompLogo},
     data() {
         return {
-            header: true
-        }
+            header: true,
+        };
     },
 
     computed: {
         isHamburgerHidden() {
-            return this.$store.getters['side/getSideMenu']
-        }
-    }
-}
+            return this.$store.getters['side/getSideMenu'];
+        },
+    },
+};
 </script>
 
 <style>

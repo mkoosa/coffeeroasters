@@ -1,45 +1,46 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {createRouter, createWebHistory} from 'vue-router';
 
 // components
-import Home from "./components/Home/CompMain.vue";
-import AboutUs from "./components/About/CompAboutus.vue";
-import Plan from "./components/Plan/CompPlan.vue";
+import Home from './components/Home/CompMain.vue';
+import AboutUs from './components/About/CompAboutus.vue';
+import Plan from './components/Plan/CompPlan.vue';
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    {
-      path: "/",
-      component: Home,
-      name: "home",
+    history: createWebHistory(),
+    routes: [
+        {
+            path: '/',
+            component: Home,
+            name: 'home',
+        },
+        {
+            path: '/aboutUs',
+            component: AboutUs,
+            name: 'about us',
+        },
+        {
+            path: '/plan',
+            component: Plan,
+            name: 'create your plane',
+        },
+    ],
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition;
+        } else if (
+            to.fullPath !== '/' &&
+            to.fullPath !== '/aboutUs' &&
+            to.fullPath === '/plan'
+        ) {
+            return {
+                el: '#summary',
+                top: 90,
+                behavior: 'smooth',
+            };
+        } else {
+            return {top: 0, behavior: 'smooth'};
+        }
     },
-    {
-      path: "/aboutUs",
-      component: AboutUs,
-      name: "about us",
-    },
-    {
-      path: "/plan",
-      component: Plan,
-      name: "create your plane",
-    },
-  ],
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition;
-    }
-    else if (to.fullPath !== '/' && to.fullPath !== '/aboutUs' && to.fullPath === '/plan'  ) {
-        return {
-        el: '#summary',
-        top: 90,
-        behavior: "smooth"
-      }
-    }
-    else {
-      return { top: 0, behavior: "smooth" };
-    }
-    
-  },
 });
 
 export default router;

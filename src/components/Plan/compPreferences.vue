@@ -1,6 +1,10 @@
 <template>
     <section class="preferences">
-        <div class="preference" v-for="preference in preferences" :key="preference.question">
+        <div
+            class="preference"
+            v-for="preference in preferences"
+            :key="preference.question"
+        >
             <comp-accordion :preference="preference"></comp-accordion>
         </div>
     </section>
@@ -9,18 +13,17 @@
 <script>
 import CompAccordion from './CompAccordion.vue';
 export default {
-    components: { CompAccordion },
+    components: {CompAccordion},
     computed: {
         preferences() {
-            return this.$store.getters['plan/getPreferences']
-        }
+            return this.$store.getters['plan/getPreferences'];
+        },
     },
 
     mounted() {
-        this.$store.dispatch('plan/getPreferences')
+        this.$store.dispatch('plan/getPreferences');
     },
-}
-
+};
 </script>
 
 <style scoped>
@@ -32,15 +35,14 @@ export default {
     margin: 6rem 0;
 }
 
-
-@media only screen and (min-width:1200px) {
+@media only screen and (min-width: 1200px) {
     .preferences {
         flex-basis: 63%;
         margin-top: 0;
         min-width: 85rem;
     }
 
-    .preference{
+    .preference {
         margin-top: 0;
     }
 }

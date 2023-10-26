@@ -25,14 +25,14 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     width: 100%;
-    height: .2rem;
+    height: 0.2rem;
 }
 
 .step {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;
-    border: .2rem solid var(--dark-cyan);
+    border: 0.2rem solid var(--dark-cyan);
     background-color: #fff;
     position: relative;
     z-index: 90;
@@ -60,11 +60,10 @@
         height: 3rem;
         border-radius: 50%;
         background-color: var(--dark-grey-blue);
-        background-color: #424A54;
+        background-color: #424a54;
         -webkit-transform: translate(50%);
         -ms-transform: translate(50%);
         transform: translate(50%);
-
     }
 
     .plan .step:nth-child(1)::after {
@@ -72,8 +71,5 @@
         -ms-transform: translate(-50%);
         transform: translate(-50%);
     }
-
-
-
 }
 </style>

@@ -150,6 +150,7 @@ z-index: 1000;
     opacity: 1;
 }
 
+
 .answer {
     max-width: 55rem;
     text-align: left;

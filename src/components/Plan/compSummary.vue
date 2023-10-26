@@ -1,55 +1,100 @@
 <template>
-    <div :class="['summary', { 'summary--summary': summary && !checkOut, 'summary--checkout': checkOut }]" id="summary">
-        <router-link @click="back" :to="{ name: 'create your plane' }">
-            <i :class="['fa-regular', 'fa-square-caret-left', 'back', { 'back': checkOut }]"></i>
+    <div
+        :class="[
+            'summary',
+            {
+                'summary--summary': summary && !checkOut,
+                'summary--checkout': checkOut,
+            },
+        ]"
+        id="summary"
+    >
+        <router-link @click="back" :to="{name: 'create your plane'}">
+            <i
+                :class="[
+                    'fa-regular',
+                    'fa-square-caret-left',
+                    'back',
+                    {back: checkOut},
+                ]"
+            ></i>
         </router-link>
         <h2
-            :class="['summary__header', { 'summary__header--summary': summary && !checkOut, 'summary__header--checkout': checkOut }]">
-            {{
-                headerTxt }}</h2>
-        <div :class="['some', { 'summary__content-wrapper': checkOut }]">
+            :class="[
+                'summary__header',
+                {
+                    'summary__header--summary': summary && !checkOut,
+                    'summary__header--checkout': checkOut,
+                },
+            ]"
+        >
+            {{ headerTxt }}
+        </h2>
+        <div :class="['some', {'summary__content-wrapper': checkOut}]">
             <p
-                :class="['summary__content', { 'summary__content--summary': summary && !checkOut, 'summary__content--checkout': checkOut }]">
-                “I drink my coffee as a <span v-if="userPreferences[0]">{{ userPreferences[0] }} </span><span
-                    v-else>__</span>
-                , with a <span v-if="userPreferences[1]">{{
-                    userPreferences[1] }} </span><span v-else>__</span>
-                type of bean. <span v-if="userPreferences[2]">{{ userPreferences[2] }} </span><span v-else>__</span>
-                ground ala <span v-if="userPreferences[3]">{{ userPreferences[3] }} </span><span v-else>__</span>,
-                sent to me <span v-if="userPreferences[4]">{{ userPreferences[4] }} </span><span v-else>__</span>.”
+                :class="[
+                    'summary__content',
+                    {
+                        'summary__content--summary': summary && !checkOut,
+                        'summary__content--checkout': checkOut,
+                    },
+                ]"
+            >
+                “I drink my coffee as a
+                <span v-if="userPreferences[0]">{{ userPreferences[0] }} </span
+                ><span v-else>__</span> , with a
+                <span v-if="userPreferences[1]">{{ userPreferences[1] }} </span
+                ><span v-else>__</span> type of bean.
+                <span v-if="userPreferences[2]">{{ userPreferences[2] }} </span
+                ><span v-else>__</span> ground ala
+                <span v-if="userPreferences[3]">{{ userPreferences[3] }} </span
+                ><span v-else>__</span>, sent to me
+                <span v-if="userPreferences[4]">{{ userPreferences[4] }} </span
+                ><span v-else>__</span>.”
             </p>
-            <p :class="{ 'summary__checkoutTxt': checkOut }" v-if="checkOut" v-text="checkOutTxt">
-            </p>
+            <p
+                :class="{summary__checkoutTxt: checkOut}"
+                v-if="checkOut"
+                v-text="checkOutTxt"
+            ></p>
             <div class="checkout-btn-wrapper--narrow">
-                <comp-button-main v-if="checkOut" :btnTxt="checkoutPriceNarrowBtn()" :resetKeepAlive="resetKeepAlive" />
+                <comp-button-main
+                    v-if="checkOut"
+                    :btnTxt="checkoutPriceNarrowBtn()"
+                    :resetKeepAlive="resetKeepAlive"
+                />
             </div>
             <div class="checkout-btn-wrapper--wide">
                 <p class="checkout-price">{{ checkoutPriceWideBtn() }}</p>
-                <comp-button-main v-if="checkOut" :btnTxt="btnTxt" :resetKeepAlive="resetKeepAlive" />
+                <comp-button-main
+                    v-if="checkOut"
+                    :btnTxt="btnTxt"
+                    :resetKeepAlive="resetKeepAlive"
+                />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import {mapGetters} from 'vuex';
 import CompButtonMain from '@/Utils/buttons/CompButtonMain.vue';
 
 export default {
     props: {
-        summary: Boolean
+        summary: Boolean,
     },
-    components: { CompButtonMain },
+    components: {CompButtonMain},
 
     data() {
         return {
             headerTxt: 'order summary',
-            btnTxt: 'Checkout'
-        }
+            btnTxt: 'Checkout',
+        };
     },
 
     mounted() {
-        this.$store.dispatch('plan/getCheckOut')
+        this.$store.dispatch('plan/getCheckOut');
     },
 
     activated() {
@@ -69,13 +114,13 @@ export default {
         checkoutPriceNarrowBtn() {
             const price = this.price;
             if (!price) return;
-            return `${this.btnTxt} - $${price.toFixed(2)} / mo`
+            return `${this.btnTxt} - $${price.toFixed(2)} / mo`;
         },
 
         checkoutPriceWideBtn() {
             const price = this.price;
             if (!price) return;
-            return `$${price.toFixed(2)} / mo`
+            return `$${price.toFixed(2)} / mo`;
         },
     },
 
@@ -84,8 +129,8 @@ export default {
             userPreferences: 'plan/getUserPreferences',
             checkOut: 'plan/getCheckOutStatus',
             checkOutTxt: 'plan/getCheckOutTxt',
-            price: 'plan/getPrice'
-        })
+            price: 'plan/getPrice',
+        }),
     },
 
     provide() {
@@ -93,10 +138,10 @@ export default {
             isDisabled: true,
             isPlan: false,
             isMain: false,
-            isCheck: true
-        }
+            isCheck: true,
+        };
     },
-}
+};
 </script>
 
 <style scoped>
@@ -158,7 +203,7 @@ export default {
     text-transform: capitalize;
     font-size: 2.6rem;
     font-weight: 900;
-    letter-spacing: .05rem;
+    letter-spacing: 0.05rem;
 }
 
 .summary__header--summary {
@@ -172,7 +217,6 @@ export default {
 
 .summary__content-wrapper {
     padding: 0 2rem;
-
 }
 
 .summary__content--summary,
@@ -187,7 +231,7 @@ export default {
     font-size: 2.3rem;
     color: var(--grey);
     margin-top: 3rem;
-    opacity: .8;
+    opacity: 0.8;
     font-weight: 900;
 }
 
@@ -208,7 +252,7 @@ export default {
     font-size: 1.5rem;
     line-height: 3rem;
     font-weight: 400;
-    text-shadow: .2rem .2rem -2rem;
+    text-shadow: 0.2rem 0.2rem -2rem;
 }
 
 .checkout-btn-wrapper--narrow {
@@ -231,8 +275,7 @@ export default {
     display: none;
 }
 
-
-@media only screen and (max-height: 768px) and (orientation:landscape) {
+@media only screen and (max-height: 768px) and (orientation: landscape) {
     .summary--checkout {
         margin-left: auto;
         margin-right: auto;
@@ -245,7 +288,6 @@ export default {
         z-index: 1000;
     }
 }
-
 
 @media only screen and (min-width: 768px) {
     .summary--checkout {
@@ -274,7 +316,6 @@ export default {
         line-height: 4rem;
         text-align: center;
     }
-
 
     .checkout-btn-wrapper--narrow {
         display: none;
@@ -307,11 +348,8 @@ export default {
 }
 
 @media only screen and (min-width: 1200px) {
-
-
     .summary__content {
         max-width: 101rem;
     }
 }
 </style>
-

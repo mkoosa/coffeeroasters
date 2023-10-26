@@ -1,9 +1,27 @@
 <template v-bind:detail="detail">
-    <div :class="['detail', createClass(detail), { isPlan: isPlan, isHome: isHome }]">
+    <div
+        :class="[
+            'detail',
+            createClass(detail),
+            {isPlan: isPlan, isHome: isHome},
+        ]"
+    >
         <picture>
-            <source class="detail__img" media="(min-width: 768px) and (max-width: 1199px)" :srcset="detail.imgTablet">
-            <source class="detail__img" media="(min-width: 1200px)" :srcset="detail.imgDesktop">
-            <img class="detail__img" :src="detail.imgMobile" :alt="detail.alt">
+            <source
+                class="detail__img"
+                media="(min-width: 768px) and (max-width: 1199px)"
+                :srcset="detail.imgTablet"
+            />
+            <source
+                class="detail__img"
+                media="(min-width: 1200px)"
+                :srcset="detail.imgDesktop"
+            />
+            <img
+                class="detail__img"
+                :src="detail.imgMobile"
+                :alt="detail.alt"
+            />
         </picture>
         <div class="detail__content">
             <h2 class="detail__header">{{ detail.name }}</h2>
@@ -13,44 +31,39 @@
     </div>
 </template>
 <script>
-
 export default {
     props: {
-        detail: [Object, String], 
+        detail: [Object, String],
         isPlan: Boolean,
-        isHome: Boolean
+        isHome: Boolean,
     },
-    
+
     data() {
         return {
-            some: 'detail'
-        }
+            some: 'detail',
+        };
     },
 
     methods: {
         createClass(value) {
             if (!value) return;
-            let { name } = value;
+            let {name} = value;
             name = name.split(' ');
-            return name[1]
-        }
+            return name[1];
+        },
     },
-}
-
+};
 </script>
 
 <style scoped>
 .detail {
     border-radius: 1rem;
     text-align: center;
-
-
 }
 
 .detail.commitment {
     margin: 8rem 0 16rem 0;
 }
-
 
 .commitment .detail__header,
 .quality .detail__header {
@@ -88,7 +101,6 @@ export default {
 
 .detail.a .detail__content {
     height: 24rem;
-
 }
 
 .detail.a.isPlan .detail__content,
@@ -139,7 +151,6 @@ export default {
     font-size: 1.5rem;
     font-weight: 200;
     line-height: 2.5rem;
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -197,11 +208,9 @@ export default {
 }
 
 @media only screen and (min-width: 1200px) {
-
     .detail {
         margin-bottom: 11rem;
     }
-
 
     .detail.commitment {
         margin-bottom: 30rem;
@@ -259,7 +268,6 @@ export default {
         background-color: var(--dark-grey-blue);
     }
 
-
     .detail.quality picture {
         order: 1;
         margin-top: -12rem;
@@ -271,7 +279,5 @@ export default {
         flex-basis: 40%;
         transform: initial;
     }
-
 }
 </style>
-

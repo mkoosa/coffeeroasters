@@ -5,6 +5,7 @@
     </section>
 </template>
 
+
 <script>
 import CompHeadquarters from './CompHeadquarters.vue';
 import CompDetails from './CompDetails.vue';

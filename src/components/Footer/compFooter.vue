@@ -4,7 +4,14 @@
         <comp-nav class="nav-list--footer" :footer="footer"></comp-nav>
         <div>
             <ul class="footer__menu-list">
-                <li tabindex="0" class="menu-list__item" z-index="0" v-for="icon in icons" :key="icon" v-html="icon"></li>
+                <li
+                    tabindex="0"
+                    class="menu-list__item"
+                    z-index="0"
+                    v-for="icon in icons"
+                    :key="icon"
+                    v-html="icon"
+                ></li>
             </ul>
         </div>
     </footer>
@@ -16,21 +23,21 @@ import CompNav from '../Header/CompNav.vue';
 
 export default {
     components: {
-        CompLogo, CompNav
+        CompLogo,
+        CompNav,
     },
 
     data() {
         return {
-            icons: ['<i class="fas fa-brands fa-square-facebook"></i>',
+            icons: [
+                '<i class="fas fa-brands fa-square-facebook"></i>',
                 '<i class="fas fa-brands fa-twitter"></i>',
-                '<i class="fas fa-brands fa-instagram"></i>'
-            ]
-            ,
-            footer: true
-        }
-    }
-}
-
+                '<i class="fas fa-brands fa-instagram"></i>',
+            ],
+            footer: true,
+        };
+    },
+};
 </script>
 
 <style scoped>
@@ -59,7 +66,7 @@ export default {
     display: inline-block;
     font-size: 3rem;
     cursor: pointer;
-    transition: color .2s;
+    transition: color 0.2s;
 }
 
 .menu-list__item:hover {

@@ -15,11 +15,10 @@
 </template>
 
 <style scoped>
-
-.loader{
+.loader {
     position: fixed;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
 }
@@ -94,7 +93,6 @@
 }
 
 @keyframes lds-grid {
-
     0%,
     100% {
         opacity: 1;
@@ -103,4 +101,5 @@
     50% {
         opacity: 0.5;
     }
-}</style>
+}
+</style>

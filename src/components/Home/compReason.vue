@@ -18,26 +18,25 @@
 </template>
 
 <script>
-
 export default {
     data() {
         return {
             headerText: 'Why choose us? ',
-            reasonTxt: 'A large part of our role is choosing which particular coffees will be featured in our range. This means working closely with the best coffee growers to give you a more impactful experience on every level. '
-        }
+            reasonTxt:
+                'A large part of our role is choosing which particular coffees will be featured in our range. This means working closely with the best coffee growers to give you a more impactful experience on every level. ',
+        };
     },
 
     mounted() {
-        this.$store.dispatch('home/getReasons')
+        this.$store.dispatch('home/getReasons');
     },
-    
+
     computed: {
         reasons() {
-            return this.$store.getters['home/getReasons']
-        }
-    }
-
-}
+            return this.$store.getters['home/getReasons'];
+        },
+    },
+};
 </script>
 
 <style scoped>
@@ -78,7 +77,7 @@ export default {
     font-size: 2.9rem;
     font-weight: 800;
     font-family: 'Fraunces', serif;
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
     position: relative;
     z-index: 100;
 }
@@ -88,8 +87,8 @@ export default {
     text-align: center;
     padding: 0 2.5rem;
     font-size: 1.5rem;
-    letter-spacing: .1rem;
-    opacity: .8;
+    letter-spacing: 0.1rem;
+    opacity: 0.8;
     line-height: 2.6rem;
 }
 
@@ -99,7 +98,6 @@ export default {
     text-align: center;
     background-color: var(--dark-cyan);
     border-radius: 1rem;
-
 }
 
 .list__icon {
@@ -162,7 +160,6 @@ export default {
 
     .icon-wrapper {
         position: relative;
-
     }
 
     .list__icon {
@@ -187,15 +184,14 @@ export default {
     }
 
     .item__paragraph {
-        opacity: .8;
-        letter-spacing: .1rem;
+        opacity: 0.8;
+        letter-spacing: 0.1rem;
         font-weight: 100;
-        text-shadow: -.1rem -.1rem -.2rem var(--white);
+        text-shadow: -0.1rem -0.1rem -0.2rem var(--white);
     }
 
     @media only screen and (min-width: 1200px) {
-
-        .reason{
+        .reason {
             margin-top: 15rem;
         }
         .reason__header {
@@ -243,6 +239,5 @@ export default {
             padding-right: 0;
         }
     }
-
 }
 </style>

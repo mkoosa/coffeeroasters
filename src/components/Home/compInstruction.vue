@@ -2,14 +2,27 @@
     <section class="instruction">
         <slot></slot>
         <slot name="home"></slot>
-        <div class="instruction__content" :style="{ color: palette.color, backgroundColor: palette.backgroundColor }">
-                <slot name="plan"></slot>
+        <div
+            class="instruction__content"
+            :style="{
+                color: palette.color,
+                backgroundColor: palette.backgroundColor,
+            }"
+        >
+            <slot name="plan"></slot>
             <ul class="instruction__list">
-                <li :instructions="instructions" class="instruction__item" v-for="instruction in instructions"
-                    :key="instruction.index">
+                <li
+                    :instructions="instructions"
+                    class="instruction__item"
+                    v-for="instruction in instructions"
+                    :key="instruction.index"
+                >
                     <p class="item__index" v-text="instruction.index"></p>
                     <h3 class="item__header" v-text="instruction.name"></h3>
-                    <p class="item__paragraph" v-text="instruction.description"></p>
+                    <p
+                        class="item__paragraph"
+                        v-text="instruction.description"
+                    ></p>
                 </li>
             </ul>
         </div>
@@ -17,19 +30,18 @@
 </template>
 
 <script>
-
 export default {
     props: {
         instructions: [Object, String],
-        palette: Object
+        palette: Object,
     },
 
     data() {
         return {
             btnTxt: 'Create your plane',
-        }
+        };
     },
-}
+};
 </script>
 
 <style scoped>
@@ -62,7 +74,7 @@ export default {
     margin: 2rem 0;
     font-size: 2.7rem;
     font-weight: 800;
-    opacity: .9;
+    opacity: 0.9;
 }
 
 .active {
@@ -73,7 +85,7 @@ export default {
     font-size: 1.6rem;
     line-height: 2.8rem;
     font-weight: 100;
-    text-shadow: .3rem .3rem -.3rem;
+    text-shadow: 0.3rem 0.3rem -0.3rem;
     margin-bottom: 4rem;
 }
 
@@ -91,7 +103,6 @@ export default {
     left: -2rem;
     border-radius: 1rem;
 }
-
 
 @media only screen and (min-width: 768px) {
     .active {
@@ -127,9 +138,7 @@ export default {
     }
 }
 
-
 @media only screen and (min-width: 1200px) {
-
     .instruction {
         margin: 10rem 0 12rem 0;
     }

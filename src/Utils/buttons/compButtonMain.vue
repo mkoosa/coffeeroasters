@@ -11,6 +11,7 @@
     </router-link>
 </template>
 
+
 <script>
 export default {
     props: {
@@ -24,9 +25,9 @@ export default {
 
     methods: {
         proceed() {
-            this.$store.dispatch('plan/changeCheckOutStatus', true)    
+            this.$store.dispatch('plan/changeCheckOutStatus', true)
         },
-        
+
         done() {
             this.$store.dispatch('plan/changeCheckOutStatus', false);
             this.resetKeepAlive()
@@ -37,7 +38,7 @@ export default {
 </script>
 
 <style scoped>
-.main-btn, 
+.main-btn,
 .checkout-btn
  {
     padding: 1.5rem;
@@ -77,4 +78,3 @@ export default {
 
 
 </style>
-

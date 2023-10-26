@@ -24,6 +24,7 @@ import CompButtonMain from '@/Utils/buttons/CompButtonMain.vue';
 import CompSteps from '@/Utils/CompSteps.vue';
 import { mapGetters } from 'vuex'
 
+
 export default {
     components: { CompCollection, CompReason, CompInstruction, CompDetail, CompButtonMain, CompSteps },
     data() {
@@ -49,7 +50,7 @@ export default {
     computed: {
         ... mapGetters({
             detail: 'home/getDetails',
-            instructions:'home/getInstruction'            
+            instructions:'home/getInstruction'
         })
     },
 
@@ -58,7 +59,7 @@ export default {
         this.$store.dispatch('home/getInstruction')
     },
 
- 
+
 }
 </script>
 <style scoped>
@@ -75,4 +76,3 @@ export default {
 
 }
 </style>
-
