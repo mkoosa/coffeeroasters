@@ -1,14 +1,16 @@
 <template>
     <div class="wrapper">
         <comp-header />
-        <comp-loader v-if="isLoader" />
-        <router-view v-if="isKeepAlive" v-slot="{Component}">
-            <keep-alive>
-                <component :is="Component" />
-            </keep-alive>
-        </router-view>
-        <router-view v-else></router-view>
-        <comp-side-menu />
+        <main>
+            <comp-loader v-if="isLoader" />
+            <router-view v-if="isKeepAlive" v-slot="{Component}">
+                <keep-alive>
+                    <component :is="Component" />
+                </keep-alive>
+            </router-view>
+            <router-view v-else></router-view>
+            <comp-side-menu />
+        </main>
         <comp-footer />
     </div>
 </template>

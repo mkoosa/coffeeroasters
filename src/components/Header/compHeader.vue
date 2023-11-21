@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <header class="header">
         <comp-logo />
         <div
             class="nav"
@@ -12,7 +12,7 @@
             ></i>
         </div>
         <comp-nav class="nav-list--header" :header="header"></comp-nav>
-    </div>
+    </header>
 </template>
 
 <script>
